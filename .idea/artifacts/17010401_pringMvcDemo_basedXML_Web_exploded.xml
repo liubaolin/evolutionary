@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="17010401-pringMvcDemo-basedXML:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/17010401_pringMvcDemo_basedXML_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="17010401-pringMvcDemo-basedXML/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="17010401-pringMvcDemo-basedXML" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

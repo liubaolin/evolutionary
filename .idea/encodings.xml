@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/annotation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hibernate-jpa-study" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/personalApp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/16112001-helloword" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/16112301-loosecouplingDemo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/16112801-SpringIoc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/17010101-springEvent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/17010201-javaConfig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/17010401-pringMvcDemo-basedXML" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/17011101-springweb-codeBased" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-study-parent/spring-data-jpa" charset="UTF-8" />
+  </component>
+</project>

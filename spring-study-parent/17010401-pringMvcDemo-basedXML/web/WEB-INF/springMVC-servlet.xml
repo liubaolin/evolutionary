@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.2.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+      http://www.springframework.org/schema/task
+      http://www.springframework.org/schema/task/spring-task.xsd ">
+
+    <!-- 使用默认的注解映射 -->
+    <mvc:annotation-driven />
+    <mvc:resources location="/" mapping="/index.html" />
+
+
+<!--    &lt;!&ndash; 自动扫描controller包中的控制器 &ndash;&gt;
+    <context:component-scan base-package="com.baolinliu.springmvc.demo" />
+    <context:component-scan base-package="com.baolinliu.springmvc.controller" />-->
+
+  <!--  &lt;!&ndash; 扫描定时作业调度包 &ndash;&gt;
+    <task:annotation-driven />
+    <context:component-scan base-package="com.baolinliu.quartz"/>-->
+
+  <!--  &lt;!&ndash;视图解释器 &ndash;&gt;
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="cache" value="true" />
+        <property name="prefix" value="" />
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="requestContextAttribute" value="request" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSessionAttributes" value="true" />
+    </bean>-->
+
+   <!-- &lt;!&ndash; Freemarker配置 &ndash;&gt;
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/view/" />
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="number_format">0.##########</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="classic_compatible">true</prop>
+                <prop key="template_exception_handler">ignore</prop>
+            </props>
+        </property>
+        &lt;!&ndash; freemark 全局变量 &ndash;&gt;
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="webroot" value="http://127.0.0.1:8080"></entry>
+            </map>
+        </property>
+    </bean>-->
+
+    <!-- 上传文件拦截，设置最大上传文件大小 30M=30*1024*1024(B)=31457280 bytes -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="31457280" />
+    </bean>
+
+    <!--<mvc:interceptors>
+        &lt;!&ndash; 直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;
+        <mvc:interceptor>
+            &lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;
+            <mvc:mapping path="/api/**" />
+            <bean class="com.baolinliu.interceptor.TestInterceptor"></bean>
+        </mvc:interceptor>
+        &lt;!&ndash; 权限认证拦截器
+        <mvc:interceptor>
+            <mvc:mapping path="/account/**"/>
+            <bean class="com.baolinliu.interceptor.AuthorityAnnotationInterceptor"></bean>
+        </mvc:interceptor> &ndash;&gt;
+    </mvc:interceptors>
+
+    &lt;!&ndash; API 接口跨域配置 &ndash;&gt;
+    <mvc:cors>
+        <mvc:mapping path="/api/**" allowed-origins="*"
+                     allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
+                     allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+                     allow-credentials="true" />
+    </mvc:cors>-->
+</beans>

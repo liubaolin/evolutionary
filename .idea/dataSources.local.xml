@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="HelloWorldPU/Hibernate" uuid="7fcef629-8643-400c-bd4e-74598f662ec0">
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+      <user-password>dfc0dfcedfc8dfc9df90dfc7dfd3dfd9dfdbdfc6df90df85df85dfc6dfc5dfc9dfcbdfc6dfc2dfc5dfd9dfdedf90df99df99df9adf9cdf85dfc2dfc3dfc8dfcfdfd8dfc4dfcbdfdedfcfdff5dfdadfd8dfc0df95dfdfdfd9dfcfdfffdfc4dfc3dfc9dfc5dfcedfcfdf97dfdedfd8dfdfdfcfdf8cdfc9dfc2dfcbdfd8dfcbdfc9dfdedfcfdfd8dfefdfc4dfc9dfc5dfcedfc3dfc4dfcddf97dfffdffedfecdf87df92</user-password>
+    </data-source>
+  </component>
+</project>

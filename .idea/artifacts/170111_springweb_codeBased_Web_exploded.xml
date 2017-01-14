@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="170111-springweb-codeBased:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/170111_springweb_codeBased_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="170111-springweb-codeBased/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="170111-springweb-codeBased" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
