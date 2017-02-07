@@ -10,9 +10,9 @@
   <modules>
     <module>16112001-helloword</module>
     <module>16112301-loosecouplingDemo</module>
-    <module>16121801-javaConfig</module>
+    <module>17010201-javaConfig</module>
     <module>16112801-SpringIoc</module>
-    <module>17010301-springEvent</module>
+    <module>17010101-springEvent</module>
     <module>spring-data-jpa</module>
     <module>17011101-springweb-codeBased</module>
     <module>17010401-pringMvcDemo-basedXML</module>
