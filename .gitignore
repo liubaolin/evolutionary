@@ -1,3 +1,5 @@
+target
+*.iml
 .idea
 test-webapp/META-INF/
 webapp/META-INF/
