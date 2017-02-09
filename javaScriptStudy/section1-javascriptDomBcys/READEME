@@ -1,0 +1,31 @@
+<<javaScript DOM编程艺术>>
+
+---------------------------------------------------------chapter one
+javaScript简史
+
+
+---------------------------------------------------------chapter
+
+最好的做法是把<script>标签放在html文档的最后</body>标签之前
+这样能使浏览器更快的加载页面(第五章详解)
+
+javaScript中用反斜线\对字符进行转义
+var mood = 'don\'t ask'
+
+javaScript允许使用任意位小数
+
+数组可以用Array声明,声明的同时可以指定初始元素的个数(也可以不指定)
+var arr = Array();
+var arr = Array(4);
+var arr = Array("a","b","c");
+var arr = ["a","b","c"];
+var arr = [1,"b",true];
+为新元素给出下标时不必局限于使用整数数字,还可以使用字符串;
+var arr = [];
+arr["name"] = "richey";  //这样的数组叫做关联数组
+本质上在创建关联数组时,你创建的是Array数组的属性
+
+内建对象 Date Math ...
+宿主对象 document Element ...
+
+
