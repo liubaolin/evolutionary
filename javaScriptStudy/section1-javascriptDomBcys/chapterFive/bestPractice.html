@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>best Practice</title>
+</head>
+<body>
+    <!-- 通过伪协议javascript:调用javascript代码的方式非常不好 -->
+    <a href="javascript:popUp('http://www.baidu.com')" title="baidu">打开新窗口</a>
+    <!--把href的属性值设为#,只是为了创建一个空链接,实际工作会由onclick属性负责完成,
+    在一些浏览器"#"链接指向文档的开头
+    这种做法同样不好-->
+    <a href="#" onclick="popUp('http://www.taobao.com');return false" title="taobao">更改网址</a>
+    <!--最佳实践-->
+    <a href="https://github.com" onclick="popUp(this.href);return false" title="github">更改网址</a>
+    <script src="bestPractice.js"></script>
+</body>
+</html>
