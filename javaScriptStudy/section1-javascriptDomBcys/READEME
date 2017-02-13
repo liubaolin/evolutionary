@@ -25,7 +25,28 @@ var arr = [];
 arr["name"] = "richey";  //这样的数组叫做关联数组
 本质上在创建关联数组时,你创建的是Array数组的属性
 
-内建对象 Date Math ...
-宿主对象 document Element ...
+内建对象(内建在javaScript语言中的对象) Date Math Array...
+宿主对象(由浏览器提供的对象) document Element ...
+    window对象代表浏览器本身,这个对象的属性和方法通常被称为BOM(浏览器对象模型)
+    document对象主要处理网页内容
 
+---------------------------------------------------------chapter three
 
+        获取元素节点
+            getElementById
+            getElementsByTagName
+            getElementsByClassName
+        操作节点的属性
+            getAttribute
+            setAttribute
+
+---------------------------------------------------------chapter four(javaScript图片库)
+如果一个站点用了多个javaScript文件,为了减少对站点的请求次数(提高性能),应该把这些文件合并到一个js文件中.
+
+this表示当前节点对象
+
+元素节点的nodeType属性值是1
+属性节点的nodeType属性值是2
+文本节点的nodeType属性值是3
+=======================================================最佳实践
+1.最好的做法是把<script>标签放在html文档的最后</body>标签之前
