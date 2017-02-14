@@ -52,6 +52,46 @@ this表示当前节点对象
 ---------------------------------------------------------chapter seven
 Ajax对象的核心就是XMLHttpRequest对象.这个对象充当着浏览器中的脚本(客户端)与服务器之间的中间人的角色.
 
+适用ajax的时候要注意同源策略.适用XMLHttpRequest对象发送的请求,只能访问与其所在的html处于同一域中的数据.
+
+---------------------------------------------------------chapter eight
+<abbr>标签的含义是"缩略语",HTML5中<aronym>标签已经被<abbr>标签代替
+
+<blockquote>引用
+
+accesskey属性可以把可以把一个元素与键盘上特定的按键关联在一起.(定义快捷键)
+
+position属性等于relative的元素可以(通过应用float属性)从文档的正常显示顺序里脱离出来
+这也是relative和static的区别
+
+---------------------------------------------------------chapter eleven(HTML5)
+HTML5新增标签
+结构层
+    <section>
+    <article>
+    <header>
+    <footer>
+媒体交互
+    <canvas>
+    <audio>
+    <video>   为在文档中嵌入影片及与影片交互定义了一种标准的方式,同时也把嵌入操作简化成了一个标签
+表单
+    email
+    url
+    date
+    number
+    range用于生成滑动条
+    search用户搜索框
+    tel用于输入电话号码
+    color用于选择颜色
+    属性
+    autocomplete 用于为文本输入框添加一组建议的输入项
+    autofocus 用于让表单元素自动获得焦点
+    form 用于对<form>标签外部的表单元素分组
+    min/max和step,用在范围<range>和数值<number>输入框中
+    pattern,用于定义一个正则表达式,以便验证输入的值
+    placeholder,用于在文本输入框中显示临时性的提示信息
+    required,表示必填
 
 =======================================================最佳实践
 1.最好的做法是把<script>标签放在html文档的最后</body>标签之前
