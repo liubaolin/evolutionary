@@ -14,3 +14,16 @@ window.onload = function () {
   document_body = document.getElementsByTagName("body")[0];
   alert(document_body.childNodes.length);
 }
+
+function addLoadEvent(func) {
+  var oldOnload = window.onload;
+  if(typeof oldOnload != 'function') {
+    window.onload = func;
+  }else {
+    window.onload = function () {
+      oldOnload();
+      func();
+    }
+  }
+  
+}
