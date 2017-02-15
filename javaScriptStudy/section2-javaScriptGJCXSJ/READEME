@@ -1,0 +1,81 @@
+
+>《javaScript高级程序设计》 --javaScript循序渐进第二本
+
+
+## chapter two(在html中使用javaScript)
+
+* &lt;script&gt;元素
+
+  > 所有&lt;script&gt;元素都会按照它们出现的顺序依次被解析.在不适用defer和async属性的情况下只有在解析完&lt;script&gt;元素中的代码后才会解析后面的&lt;script&gt;元素中的代码
+
+* &lt;script&gt;标签的defer属性
+
+  > 立即下载,但是等到整个页面都解析完成后再执行.
+    defer只适用于外部脚本.(HTML5中明确规定)
+    延迟脚本总是按照它们的顺序执行
+    把延迟脚本放在页面底部,仍然是最佳选择
+
+* &lt;script&gt;的async属性
+
+  > async表示不必阻塞其它脚本,也不阻塞文档呈现.不  能保证异步脚本按照它们在文档中的顺序执行
+
+* 引用外部js文件(而非直接在html中嵌入js代码)的优点:
+
+  > 可维护性
+    可缓存
+    适应未来:HTML和XHTML引入外部js文件的语法是相同的
+
+* &lt;noscript&gt;
+
+  > 用以在不支持或禁用javaScript的浏览器中展示替代的内容.
+  在支持并启用了javaScript脚本的浏览器中不会显示&lt;noscript&rt;元素中的内容
+
+## chapter three(基本概念)
+
+* javaScript中的一切都区分大小写
+
+* 严格模式
+
+  > ES5中引入了严格模式
+    在严格模式下,ES3中的一些不确定的行为将得到处理,并且对某些不确定的操作也会跑出错误
+    要在整个脚本中启用严格模式,在顶部添加代码"use strict"即可(老版本的浏览器会把它当作一行普通字符串，加以忽略)
+
+* 数据类型
+
+  * 5中简单的数据类型(也称之为基本类型)
+
+    > Undefined、Null、Number、String、Boolean         任何数值除以0都将返回NaN
+     NaN与任何值都不相等,包括NaN本身
+     可以用isNaN()函数判断,isNaN()会尝试将参数转换为数值,不能转换成数值的值都会导致这个函数返回true
+
+  * 1种复杂数据类型:Object
+
+    > Object本质上是由一组无名的键值对组成的
+    Object的每个实例都具有以下的属性和方法:
+
+      * Constructor:构造函数
+
+      * hasOwnProperty(propertyName):用于检查给定的属性是否在当前的实例中
+
+      * isPropertyTypeOf(object):传入的对象是否是另一个对象的原型
+
+      * propertyIsEnumerable(propertyName):给定的属性是否能够用for-in语句类枚举
+
+      * toLocalString:返回该对象的字符串表示,该字符串与执行环境的地区对应.
+
+      * toString返回对象的字符串表示.
+
+      * valueOf():返回对象的字符串、数值、或布尔值表示.通常与toString返回的值相同.
+
+    > 由于BOM和DOM都是宿主对象,因为它们是由宿主实现提供和定义的.ECMA-262不负责定义宿主对象,因此宿主对象可能会也可能不会继承Object
+
+
+* switch语句
+
+  > javaScript中可以在Switch语句中使用任何数据类型
+  每个case的值可以是常量、变量、甚至是表达式
+  switch语句在比较值是时候用的是全等操作符
+
+* javaScript函数中所有参数传递的都是值,不可能通过引用传递
+
+* javaScript函数(由于不存在方法签名)不能像传统意义那样实现重载
