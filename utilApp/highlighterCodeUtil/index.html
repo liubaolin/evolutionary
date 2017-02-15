@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>代码排版</title>
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script id="codeTypejs" type="text/javascript" src="scripts/shBrushJScript.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+	<script src="app.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+
+<body style="background: white; font-family: Helvetica">
+	<h3>请选择代码类型</h3>
+	<select id="codeTypeSelect" onchange="changeCodeType(this.selectedIndex)">
+		<option value="shBrushJScript">javaScript</option>
+		<option value="shBrushJava">java</option>
+		<option value="shBrushXml">html</option>
+	</select>
+	<div>
+		<h3>请输入源代码</h3>
+		<textarea id="sourceCode" cols="100" rows="15" onchange="toDestCode(this.value)"></textarea>
+	</div>
+	<pre id="preClass" class="brush: js;">
+	</pre>
+</body>
+</html>
