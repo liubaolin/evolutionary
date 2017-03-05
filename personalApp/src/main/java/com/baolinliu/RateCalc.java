@@ -7,9 +7,9 @@ package com.baolinliu;
 public class RateCalc {
 
 
-    public static double basicMoney = 1100 * 12;//每次定投金额
-    public static int limit = 30;        //定投期限
-    public static double rate = 0.1;     //利率
+    public static double basicMoney = 10000;//每次定投金额
+    public static int limit = 10;        //定投期限
+    public static double rate = 0.05;     //利率
 
     public static double getAllMoney(double money,int year,double rate){
         if(year == 1){
