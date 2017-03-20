@@ -14,7 +14,20 @@ import org.springframework.validation.Validator;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.HandlerExceptionResolver;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
+import org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver;
+import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
+import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -40,50 +53,7 @@ public class SpringConfig extends WebMvcConfigurerAdapter implements Initializin
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // registry.addWebRequestInterceptor(openSessionInViewInterceptor);
-        /*registry.addWebRequestInterceptor(openEntityManagerInViewInterceptor);
-        registry.addInterceptor(localeChangeInterceptor);
-        registry.addInterceptor(viewPathInterceptor);
-        registry.addInterceptor(requestResponseHolder);
-        registry.addInterceptor(new ActiveRegistmailAdapter());
-        registry.addInterceptor(securityHandlerInterceptorAdapter);
-        registry.addInterceptor(new StaffAccountDisabledInterceptorAdapter());
-        registry.addInterceptor(new ResourceInterceptorAdapter());
-        registry.addInterceptor(new HandlerInterceptor() {
-            @Override
-            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-                return true;
-            }
 
-            @Override
-            public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-            }
-
-            @Override
-            public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-                SalaryCalcContext.destory();
-            }
-        });
-        registry.addInterceptor(requestHandlerHolder);
-        registry.addInterceptor(jsonRequestBodyHolder);
-        //TODO 浏览器缓存设置,系统正式运行后开放注释
-        registry.addInterceptor(new WebContentInterceptor() {
-            @Override
-            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException {
-                HandlerMethod handlerMethod = (HandlerMethod) handler;
-                int cacheSeconds = -1;
-                if (handlerMethod.getBean() instanceof BaseCodeServiceImpl && handlerMethod.getMethod().getName().equals("getAll")) {
-                    cacheSeconds = 600;
-                } else if (handlerMethod.getBean() instanceof BaseEnumServiceImpl) {
-                    cacheSeconds = 604800;
-                }
-                if (cacheSeconds > 0) {
-                    applyCacheSeconds(response, cacheSeconds);
-                    return true;
-                }
-                return super.preHandle(request, response, handler);
-            }
-        });*/
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -97,10 +67,10 @@ public class SpringConfig extends WebMvcConfigurerAdapter implements Initializin
      */
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
-        /*exceptionResolvers.add(new SimpleMappingExceptionResolver());
+        exceptionResolvers.add(new SimpleMappingExceptionResolver());
         exceptionResolvers.add(new ResponseStatusExceptionResolver());
         exceptionResolvers.add(new ExceptionHandlerExceptionResolver());
-        exceptionResolvers.add(new DefaultHandlerExceptionResolver());*/
+        exceptionResolvers.add(new DefaultHandlerExceptionResolver());
     }
 
     @Override
