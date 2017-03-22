@@ -14,14 +14,12 @@
       http://www.springframework.org/schema/task
       http://www.springframework.org/schema/task/spring-task.xsd ">
 
-    <!-- 使用默认的注解映射 -->
+    <!-- 要启用XML命名空间 -->
     <mvc:annotation-driven />
     <mvc:resources location="/" mapping="/index.html" />
 
-
-<!--    &lt;!&ndash; 自动扫描controller包中的控制器 &ndash;&gt;
-    <context:component-scan base-package="com.baolinliu.springmvc.demo" />
-    <context:component-scan base-package="com.baolinliu.springmvc.controller" />-->
+    <!-- 自动扫描controller包中的控制器 -->
+    <context:component-scan base-package="com.baolinliu.controller"/>
 
   <!--  &lt;!&ndash; 扫描定时作业调度包 &ndash;&gt;
     <task:annotation-driven />

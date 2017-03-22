@@ -33,7 +33,7 @@
     <context:component-scan base-package="com.baolinliu.dao" />
     <context:component-scan base-package="com.baolinliu.cache" />-->
 
-    <!--master 配置数据源 -->
+<!--&lt;!&ndash;master 配置数据源 &ndash;&gt;
     <bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
         <property name="driverClassName">
@@ -49,19 +49,19 @@
             <value>${master.jdbc.password}</value>
         </property>
 
-        <!-- 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall -->
+        &lt;!&ndash; 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall &ndash;&gt;
         <property name="filters" value="stat,log4j" />
-        <!-- 最大并发连接数 -->
+        &lt;!&ndash; 最大并发连接数 &ndash;&gt;
         <property name="maxActive" value="30" />
-        <!-- 初始化连接数量 -->
+        &lt;!&ndash; 初始化连接数量 &ndash;&gt;
         <property name="initialSize" value="5" />
-        <!-- 配置获取连接等待超时的时间 -->
+        &lt;!&ndash; 配置获取连接等待超时的时间 &ndash;&gt;
         <property name="maxWait" value="60000" />
-        <!-- 最小空闲连接数 -->
+        &lt;!&ndash; 最小空闲连接数 &ndash;&gt;
         <property name="minIdle" value="5" />
-        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        &lt;!&ndash; 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 &ndash;&gt;
         <property name="timeBetweenEvictionRunsMillis" value="60000" />
-        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        &lt;!&ndash; 配置一个连接在池中最小生存的时间，单位是毫秒 &ndash;&gt;
         <property name="minEvictableIdleTimeMillis" value="300000" />
         <property name="validationQuery" value="SELECT 'x'" />
         <property name="testWhileIdle" value="true" />
@@ -69,15 +69,15 @@
         <property name="testOnReturn" value="false" />
         <property name="poolPreparedStatements" value="false" />
         <property name="maxOpenPreparedStatements" value="100" />
-        <!-- 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) -->
+        &lt;!&ndash; 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) &ndash;&gt;
         <property name="removeAbandoned" value="true" />
-        <!-- 1800秒，也就是30分钟 -->
+        &lt;!&ndash; 1800秒，也就是30分钟 &ndash;&gt;
         <property name="removeAbandonedTimeout" value="1800" />
-        <!-- 关闭abanded连接时输出错误日志 -->
+        &lt;!&ndash; 关闭abanded连接时输出错误日志 &ndash;&gt;
         <property name="logAbandoned" value="true" />
     </bean>
 
-    <!--slave 配置数据源 -->
+    &lt;!&ndash;slave 配置数据源 &ndash;&gt;
     <bean id="slaveDataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
         <property name="driverClassName">
@@ -93,25 +93,25 @@
             <value>${slave.jdbc.password}</value>
         </property>
 
-        <!-- 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall -->
-        <!-- <property name="filters" value="stat,log4j" /> -->
+        &lt;!&ndash; 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall &ndash;&gt;
+        &lt;!&ndash; <property name="filters" value="stat,log4j" /> &ndash;&gt;
         <property name="proxyFilters">
             <list>
                 <ref bean="stat-filter" />
                 <ref bean="log-filter" />
             </list>
         </property>
-        <!-- 最大并发连接数 -->
+        &lt;!&ndash; 最大并发连接数 &ndash;&gt;
         <property name="maxActive" value="30" />
-        <!-- 初始化连接数量 -->
+        &lt;!&ndash; 初始化连接数量 &ndash;&gt;
         <property name="initialSize" value="5" />
-        <!-- 配置获取连接等待超时的时间 -->
+        &lt;!&ndash; 配置获取连接等待超时的时间 &ndash;&gt;
         <property name="maxWait" value="60000" />
-        <!-- 最小空闲连接数 -->
+        &lt;!&ndash; 最小空闲连接数 &ndash;&gt;
         <property name="minIdle" value="5" />
-        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        &lt;!&ndash; 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 &ndash;&gt;
         <property name="timeBetweenEvictionRunsMillis" value="60000" />
-        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        &lt;!&ndash; 配置一个连接在池中最小生存的时间，单位是毫秒 &ndash;&gt;
         <property name="minEvictableIdleTimeMillis" value="300000" />
         <property name="validationQuery" value="SELECT 'x'" />
         <property name="testWhileIdle" value="true" />
@@ -119,15 +119,15 @@
         <property name="testOnReturn" value="false" />
         <property name="poolPreparedStatements" value="false" />
         <property name="maxOpenPreparedStatements" value="100" />
-        <!-- 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) -->
+        &lt;!&ndash; 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) &ndash;&gt;
         <property name="removeAbandoned" value="true" />
-        <!-- 1800秒，也就是30分钟 -->
+        &lt;!&ndash; 1800秒，也就是30分钟 &ndash;&gt;
         <property name="removeAbandonedTimeout" value="1800" />
-        <!-- 关闭abanded连接时输出错误日志 -->
+        &lt;!&ndash; 关闭abanded连接时输出错误日志 &ndash;&gt;
         <property name="logAbandoned" value="true" />
     </bean>
 
-    <!--goldMaster 配置数据源 -->
+    &lt;!&ndash;goldMaster 配置数据源 &ndash;&gt;
     <bean id="goldMasterDataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
         <property name="driverClassName">
@@ -143,25 +143,25 @@
             <value>${goldMaster.jdbc.password}</value>
         </property>
 
-        <!-- 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall -->
-        <!-- <property name="filters" value="stat,log4j" /> -->
+        &lt;!&ndash; 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall &ndash;&gt;
+        &lt;!&ndash; <property name="filters" value="stat,log4j" /> &ndash;&gt;
         <property name="proxyFilters">
             <list>
                 <ref bean="stat-filter" />
                 <ref bean="log-filter" />
             </list>
         </property>
-        <!-- 最大并发连接数 -->
+        &lt;!&ndash; 最大并发连接数 &ndash;&gt;
         <property name="maxActive" value="30" />
-        <!-- 初始化连接数量 -->
+        &lt;!&ndash; 初始化连接数量 &ndash;&gt;
         <property name="initialSize" value="5" />
-        <!-- 配置获取连接等待超时的时间 -->
+        &lt;!&ndash; 配置获取连接等待超时的时间 &ndash;&gt;
         <property name="maxWait" value="60000" />
-        <!-- 最小空闲连接数 -->
+        &lt;!&ndash; 最小空闲连接数 &ndash;&gt;
         <property name="minIdle" value="5" />
-        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        &lt;!&ndash; 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 &ndash;&gt;
         <property name="timeBetweenEvictionRunsMillis" value="60000" />
-        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        &lt;!&ndash; 配置一个连接在池中最小生存的时间，单位是毫秒 &ndash;&gt;
         <property name="minEvictableIdleTimeMillis" value="300000" />
         <property name="validationQuery" value="SELECT 'x'" />
         <property name="testWhileIdle" value="true" />
@@ -169,15 +169,15 @@
         <property name="testOnReturn" value="false" />
         <property name="poolPreparedStatements" value="false" />
         <property name="maxOpenPreparedStatements" value="100" />
-        <!-- 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) -->
+        &lt;!&ndash; 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) &ndash;&gt;
         <property name="removeAbandoned" value="true" />
-        <!-- 1800秒，也就是30分钟 -->
+        &lt;!&ndash; 1800秒，也就是30分钟 &ndash;&gt;
         <property name="removeAbandonedTimeout" value="1800" />
-        <!-- 关闭abanded连接时输出错误日志 -->
+        &lt;!&ndash; 关闭abanded连接时输出错误日志 &ndash;&gt;
         <property name="logAbandoned" value="true" />
     </bean>
 
-    <!--goldSlave 配置数据源 -->
+    &lt;!&ndash;goldSlave 配置数据源 &ndash;&gt;
     <bean id="goldSlaveDataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
         <property name="driverClassName">
@@ -193,25 +193,25 @@
             <value>${goldSlave.jdbc.password}</value>
         </property>
 
-        <!-- 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall -->
-        <!-- <property name="filters" value="stat,log4j" /> -->
+        &lt;!&ndash; 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall &ndash;&gt;
+        &lt;!&ndash; <property name="filters" value="stat,log4j" /> &ndash;&gt;
         <property name="proxyFilters">
             <list>
                 <ref bean="stat-filter" />
                 <ref bean="log-filter" />
             </list>
         </property>
-        <!-- 最大并发连接数 -->
+        &lt;!&ndash; 最大并发连接数 &ndash;&gt;
         <property name="maxActive" value="30" />
-        <!-- 初始化连接数量 -->
+        &lt;!&ndash; 初始化连接数量 &ndash;&gt;
         <property name="initialSize" value="5" />
-        <!-- 配置获取连接等待超时的时间 -->
+        &lt;!&ndash; 配置获取连接等待超时的时间 &ndash;&gt;
         <property name="maxWait" value="60000" />
-        <!-- 最小空闲连接数 -->
+        &lt;!&ndash; 最小空闲连接数 &ndash;&gt;
         <property name="minIdle" value="5" />
-        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        &lt;!&ndash; 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 &ndash;&gt;
         <property name="timeBetweenEvictionRunsMillis" value="60000" />
-        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        &lt;!&ndash; 配置一个连接在池中最小生存的时间，单位是毫秒 &ndash;&gt;
         <property name="minEvictableIdleTimeMillis" value="300000" />
         <property name="validationQuery" value="SELECT 'x'" />
         <property name="testWhileIdle" value="true" />
@@ -219,18 +219,18 @@
         <property name="testOnReturn" value="false" />
         <property name="poolPreparedStatements" value="false" />
         <property name="maxOpenPreparedStatements" value="100" />
-        <!-- 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) -->
+        &lt;!&ndash; 打开removeAbandoned功能(连接泄漏监测，怀疑存在泄漏之后再打开) &ndash;&gt;
         <property name="removeAbandoned" value="true" />
-        <!-- 1800秒，也就是30分钟 -->
+        &lt;!&ndash; 1800秒，也就是30分钟 &ndash;&gt;
         <property name="removeAbandonedTimeout" value="1800" />
-        <!-- 关闭abanded连接时输出错误日志 -->
+        &lt;!&ndash; 关闭abanded连接时输出错误日志 &ndash;&gt;
         <property name="logAbandoned" value="true" />
     </bean>
 
-    <!-- 慢SQL记录 -->
+    &lt;!&ndash; 慢SQL记录 &ndash;&gt;
     <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
         <property name="mergeSql" value="true" />
-        <!-- 3000毫秒，也就是3秒 -->
+        &lt;!&ndash; 3000毫秒，也就是3秒 &ndash;&gt;
         <property name="slowSqlMillis" value="3000" />
         <property name="logSlowSql" value="true" />
     </bean>
@@ -249,35 +249,35 @@
         <property name="defaultTargetDataSource" ref="masterDataSource" />
     </bean>
 
-    <!-- 配置Jdbc模板 -->
+    &lt;!&ndash; 配置Jdbc模板 &ndash;&gt;
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
-    <!-- 配置事务管理器 -->
+    &lt;!&ndash; 配置事务管理器 &ndash;&gt;
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
           p:dataSource-ref="dataSource" />
 
-    <!-- 数据源切换类 -->
-    <!--<bean id="dataSourceChoose" class="com.baolinliu.interceptor.DataSourceChoose" />-->
+    &lt;!&ndash; 数据源切换类 &ndash;&gt;
+    &lt;!&ndash;<bean id="dataSourceChoose" class="com.baolinliu.interceptor.DataSourceChoose" />&ndash;&gt;
 
-    <!-- 通过AOP配置提供事务增强，让service包下所有Bean的所有方法拥有事务 -->
+    &lt;!&ndash; 通过AOP配置提供事务增强，让service包下所有Bean的所有方法拥有事务 &ndash;&gt;
     <aop:config proxy-target-class="true">
         <aop:pointcut id="serviceMethod"
                       expression=" execution(* com.baolinliu.service..*(..))" />
         <aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice"
                      order="2" />
-        <!--<aop:aspect ref="dataSourceChoose" order="1">
+        &lt;!&ndash;<aop:aspect ref="dataSourceChoose" order="1">
             <aop:before method="before" pointcut-ref="serviceMethod" />
-        </aop:aspect>-->
+        </aop:aspect>&ndash;&gt;
     </aop:config>
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="*" />
         </tx:attributes>
     </tx:advice>
-
+-->
     <!-- Memcached 配置 -->
  <!--   <bean id="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder"
           p:connectionPoolSize="${memcached.connectionPoolSize}" p:failureMode="${memcached.failureMode}">

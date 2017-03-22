@@ -10,7 +10,6 @@
     <module>personalApp</module>
     <module>hibernate-jpa-study</module>
     <module>webapp</module>
-    <module>test</module>
   </modules>
   <packaging>pom</packaging>
 
