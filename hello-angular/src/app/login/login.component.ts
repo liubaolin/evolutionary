@@ -12,7 +12,8 @@ import {Component, OnInit, Inject} from "@angular/core";
                   minlength="3" 
                   [(ngModel)]="username" 
                   #usernameRef="ngModel" 
-                  type="text">
+                  type="text"
+                  placeholder="请输入用户名">
                   {{usernameRef.errors | json}}
                   <div *ngIf="usernameRef.errors?.required">this is required</div>
                   <div *ngIf="usernameRef.errors?.minlength">should be at least 3 charactors</div>
@@ -21,14 +22,15 @@ import {Component, OnInit, Inject} from "@angular/core";
                     required 
                     [(ngModel)]="password" 
                     #passwordRef="ngModel" 
-                    type="password">{{passwordRef.valid}}
+                    type="password"
+                    placeholder="请输入密码">{{passwordRef.valid}}
               <button type="submit">Login</button>
             </fieldset>
         </form>
        
     </div>
   `,
-  styles: [],
+  styles: ['input.ng-invalid{ border:3px solid red;} input.ng-valid{ border:3px solid green;}'],
   providers: []
 })
 export class LoginComponent implements OnInit {
@@ -47,7 +49,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(formValue) {
-    console.log("auth result is " + this.service.loginWithCredentials(formValue.login.username,formValue.login.password));
+    console.log("auth result is " + this.service.loginWithCredentials(formValue.login.username, formValue.login.password));
   }
 
 }
