@@ -1,0 +1,66 @@
+@import "../styles/variables";
+@import "../styles/mixins/index";
+
+header {
+  @include font-normal;
+  width: 1000px;
+  position: absolute;
+  left: calc(50% - 500px);
+  height: 100px;
+  color: $font-white-color;
+  font-size: 1.4rem;
+  .right{
+    button{
+      margin-left: 20px;
+      color: $font-white-color;
+      &:focus{
+        outline: none;
+      }
+    }
+    .login{
+      background-color: $red-color-default;
+      border:2px solid $red-color-default;
+      &:hover{
+        border-color: $hover-red-color;
+        background-color: $hover-red-color;
+      }
+    }
+    .regist{
+      border: 2px solid $border-color-default;
+      background:none;
+      &:hover{
+        border-color: #ffffff;
+      }
+    }
+  }
+
+  >div{
+    padding-top: 40px;
+    &:last-child{
+      padding-top:35px;
+    }
+  }
+  ul{
+    height: 35px;
+    margin: 0;
+    li{
+      height: 35px;
+      margin-left: 29px;
+      padding-top: 10px;
+      cursor: pointer;
+      a{
+        color: $font-white-color;
+        height: 35px;
+        display: block;
+        &:hover {
+          color: $red-color-default !important;
+          text-decoration: none;
+        }
+      }
+    }
+    .active{
+      border-bottom: 3px solid $orange-color-default;
+    }
+  }
+
+}

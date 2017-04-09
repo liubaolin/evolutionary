@@ -1,0 +1,13 @@
+@mixin font-title() {
+  font-family: "微软雅黑 Bold", 微软雅黑;
+  font-weight: bold;
+}
+
+@mixin font-normal() {
+  font-family: "微软雅黑 Regular", 微软雅黑;
+  font-weight: normal;
+}
+@mixin font-light() {
+  font-family: "微软雅黑 Light", 微软雅黑;
+  font-weight: normal;
+}

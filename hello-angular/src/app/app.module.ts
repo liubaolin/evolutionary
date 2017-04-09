@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {LoginComponent} from './login/login.component';
-import {TodoModule} from './todo/todo.module'
+import {TodoModule} from './todo/todo.module';
 import {AppComponent} from './app.component';
 import {AuthService} from './core/auth.service';
 import {routing} from './app.routes';
