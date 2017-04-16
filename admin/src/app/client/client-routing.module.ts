@@ -5,12 +5,24 @@ import {ClientComponent} from './client.component';
 import {LoginComponent} from './login/login.component';
 
 const routes:Routes = [
+  /*{
+    path:'',
+    redirectTo:'index',
+    pathMatch:'full'
+  },*/
   {
-    path: 'client',
-    component: ClientComponent
-  }, {
-    path: 'login',
-    component:LoginComponent
+    path: '',
+    component: ClientComponent,
+    children:[
+      {
+        path: 'login',
+        component:LoginComponent
+      }
+    ]
+  },
+  {
+    path:'aboutus',
+    loadChildren:'app/client/aboutus/aboutus.module#AmoutUsModule'
   }
 ]
 

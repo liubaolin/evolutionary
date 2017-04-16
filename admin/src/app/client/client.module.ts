@@ -17,7 +17,7 @@ import {BingImageService} from './bing-image.service';
   ],
   declarations: [
     ClientComponent,
-    LoginComponent
+    LoginComponent,
   ],
   providers: [
     {provide: 'bing', useClass: BingImageService}
