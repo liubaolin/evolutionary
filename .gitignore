@@ -6,3 +6,5 @@ webapp/META-INF/
 .classpath
 .settings
 .project
+**/bower_components/
+**/node_modules/

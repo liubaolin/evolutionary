@@ -1,0 +1,22 @@
+{
+  "name": "spring-security",
+  "description": "",
+  "main": "",
+  "authors": [
+    "richey.liu <richey.liu@cnbexpress.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/liubaolin/studyProject",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.3.3",
+    "jquery": "^3.2.1",
+    "angular": "angularjs#^1.6.4"
+  }
+}

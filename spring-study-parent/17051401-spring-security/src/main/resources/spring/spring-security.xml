@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <debug/>
+
+    <!--http 元素是用于定义 Web 相关权限控制-->
+    <!-- 静态资源，不用权限 -->
+    <http pattern="/login" security="none" />
+    <http pattern="/assets/**" security="none"/>
+
+
+    <!--http的auto-config="true"时会自动注册一些过滤器，默认为false，不建议使用该属性，建议手动添加相关的命名空间-->
+    <http use-expressions="true"
+          entry-point-ref="loginUrlAuthenticationEntryPoint">
+        <!--######################1.定义权限控制规则#########################
+            intercept-url 定义了一个权限控制的规则
+            pattern 属性表示我们将对哪些 url 进行权限控制，其也可以是一个正则表达式
+            access 属性表示在请求对应的 URL 时需要什么权限，默认配置时它应该是一个以逗号分隔的角色列表，请求的用户只需拥有其中的一个角色就能成功访问对应的 URL
+            这里的 “ROLE_USER” 表示请求的用户应当具有 ROLEUSER 角色。“ROLE” 前缀是一个提示 Spring 使用基于角色的检查的标记
+        -->
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+
+        <!-- 同一时间内允许同一账号保持4个在线,error-if-maximum-exceeded="true"表示第第四个以后的登不进去 -->
+     <!--   <session-management>
+            <concurrency-control max-sessions="4"
+                                 error-if-maximum-exceeded="true"/>
+        </session-management>-->
+
+        <custom-filter ref="loginFilter" position="FORM_LOGIN_FILTER"/>
+
+        <!-- 提供登录页面,由于我们自定义了一个过滤器，占用了form-login命名空间对应的标准过滤器的位置，所以，我们不能引入该标签了 -->
+        <!--<form-login login-page='/assets/views/login.html'/>-->
+        <!-- 用基础验证代替表单,当我们同时定义了http-basic和form-login元素时，form-login将具有更高的优先级-->
+        <!--<http-basic/>-->
+
+
+        <!--<form-login login-page="/login.jsp"
+                    authentication-failure-handler-ref="authenticationFailureHandlerImpl"
+                    authentication-success-handler-ref="authenticationSuccessHandlerImpl"/>
+        <logout logout-success-url="/logout.jsp" logout-url="logout"
+                invalidate-session="true" delete-cookies="JSESSIONID"/>-->
+    </http>
+
+    <!--##################2.定义一个 AuthenticationManager 用于认证################
+        authentication-manager 元素指定了一个 AuthenticationManager，
+        其需要一个 AuthenticationProvider（对应 authentication-provider 元素）来进行真正的认证
+
+        默认情况下 authentication-provider 对应一个 DaoAuthenticationProvider，
+        其需要 UserDetailsService（对应 user-service 元素）
+        来获取用户信息 UserDetails（对应 user 元素）
+    -->
+   <!-- <authentication-manager>
+         <authentication-provider>
+             <user-service>
+                <user name="admin" password="123" authorities="ROLE_USER"/>
+             </user-service>
+         </authentication-provider>
+
+        &lt;!&ndash;<user-service properties="/WEB-INF/config/users.properties"/>&ndash;&gt;
+
+       &lt;!&ndash; <authentication-provider user-service-ref="userService">
+            <password-encoder hash="bcrypt"/>
+        </authentication-provider>&ndash;&gt;
+    </authentication-manager>-->
+
+   <!-- <beans:bean id="userService" class="com.**.user.service.impl.UserServiceImpl"/>
+
+    &lt;!&ndash; 认证成功调用  主要实现AuthenticationSuccessHandler这个类的onAuthenticationSuccess方法&ndash;&gt;
+    <beans:bean id="authenticationSuccessHandlerImpl"
+                class="com.**.utils.springsecurity.AuthenticationSuccessHandlerImpl">
+        <beans:property name="url" value="/welcome.jsp"/>
+    </beans:bean>
+
+    &lt;!&ndash; 认证失败调用 主要实现AuthenticationFailureHandler类的onAuthenticationFailure &ndash;&gt;
+
+    <beans:bean id="authenticationFailureHandlerImpl"
+                class="com.**.utils.springsecurity.AuthenticationFailureHandlerImpl">
+        <beans:property name="errorUrl" value="/error.jsp"/>
+    </beans:bean>-->
+
+    <!-- 未登录的切入点 -->
+    <beans:bean id="loginUrlAuthenticationEntryPoint"
+                class="com.baolinliu.web.security.LoginUrlAuthenticationEntryPoint">
+        <beans:constructor-arg value="/assets/views/index/index.html"/>
+    </beans:bean>
+
+    <beans:bean id="loginFilter" class="com.baolinliu.web.security.RicheyUsernamePasswordAuthenticationFilter">
+        <!-- 处理登录的action -->
+        <beans:property name="filterProcessesUrl" value="/j_spring_security_check"/>
+        <!-- 验证成功后的处理 -->
+        <beans:property name="authenticationSuccessHandler"
+                        ref="authenticationSuccessHandler"/>
+        <!-- 验证失败后的处理 -->
+        <beans:property name="authenticationFailureHandler" ref="simpleUrlAuthenticationFailureHandler"/>
+        <beans:property name="authenticationManager" ref="myAuthenticationManager"/>
+    </beans:bean>
+
+    <beans:bean id="authenticationSuccessHandler"
+                class="com.baolinliu.web.security.RicheyAuthenticationSuccessHandler">
+    </beans:bean>
+    <beans:bean id="simpleUrlAuthenticationFailureHandler"
+                class="com.baolinliu.web.security.SimpleUrlAuthenticationFailureHandler">
+    </beans:bean>
+
+    <!-- 实现了UserDetailsService的Bean -->
+    <authentication-manager alias="myAuthenticationManager">
+        <authentication-provider user-service-ref="userDetailService">
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="userDetailService" class="com.baolinliu.web.security.service.impl.UserDetailServiceImpl"/>
+
+
+</beans:beans>
