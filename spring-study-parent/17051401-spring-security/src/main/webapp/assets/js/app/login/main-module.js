@@ -1,4 +1,4 @@
 "use strict";
-define(["controller/login"], function () {
+define(["controller/index"], function () {
     
 });

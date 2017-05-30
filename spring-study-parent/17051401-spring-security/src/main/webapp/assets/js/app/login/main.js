@@ -2,8 +2,8 @@
 requirejs.config({
   //By default load any module IDs from ../../core
   paths: {
-    "angular": '../../core/angular',
-    "jquery":'../../core/jquery',
+    "angular": '../../../bower_components/angular/angular',
+    "jquery":'../../../bower_components/jquery/dist/jquery',
     "main-app": "../../core/main-app",
   },
   shim: {

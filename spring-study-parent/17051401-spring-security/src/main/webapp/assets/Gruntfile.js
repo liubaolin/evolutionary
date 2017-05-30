@@ -14,12 +14,12 @@ module.exports = function (grunt) {
                     name: 'main',                           //执行的第一个requirejs包
                     optimize: 'uglify2',
                     //optimize: 'none',
-                    // removeCombined: true,               // 删除被压缩的文件
+                    removeCombined: false,               // 删除被压缩的文件
                     preserveLicenseComments: false,     // 不保留License信息
                     mainConfigFile: 'js/app/' + name + '/main.js',                 //requirejs的配置文件
                     out: 'js/' + name + '.min.js',                 //输出的压缩文件
                     findNestedDependencies: true,                               //必须指定让requirejs能找到嵌套的文件
-                    include: ['./node_modules/requirejs/require.js']                          //指定requirejs所在的位置。
+                    include: ['../../../node_modules/requirejs/require.js']                          //指定requirejs所在的位置。
                 }
             };
         }
