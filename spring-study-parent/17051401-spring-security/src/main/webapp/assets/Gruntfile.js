@@ -3,7 +3,7 @@ module.exports = function (grunt) {
      * 所有'js/app/{package}/main.js'文件都将被压缩成对应的{package}.min.js文件.
      */
     var mainJsList = grunt.file.expand('js/app/**/main.js');
-    var requirejsTasks = {};
+    var angular = {};
     if (mainJsList.length > 0) {
         for (var i = 0; i < mainJsList.length; i++) {
             var path = mainJsList[i].replace(/\/main\.js/, '');
