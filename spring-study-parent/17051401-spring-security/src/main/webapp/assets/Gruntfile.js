@@ -215,7 +215,7 @@ module.exports = function (grunt) {
     };
 
     var useMinTasks = {
-        html: ['view/**/*.html']
+        html: ['views/**/*.html']
     };
 
     var manifestTasks = {
