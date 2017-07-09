@@ -1,8 +1,8 @@
 package com.baolinliu.springData.repository;
 
+import com.baolinliu.springDataJpa.domain.Company;
 import com.baolinliu.springDataJpa.domain.Customer;
 import com.baolinliu.springDataJpa.repository.CustomerSpecificationExecutorRepository;
-import com.baolinliu.springDataJpa.service.CustomerService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +15,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Richey on 2017/6/15.
@@ -72,4 +70,35 @@ public class CustomerSpecificationExecutorRepositoryTest {
         System.out.println("查询的当前页面的集合:"+page.getContent());
         System.out.println("当前页面的记录数:" + page.getNumberOfElements());
     }
+
+
+    @Test
+    public void testQuery2() {
+        //混合条件查询
+        Specification<Customer> specification = new Specification<Customer>() {
+            @Override
+            public Predicate toPredicate(Root<Customer> root,
+                                         CriteriaQuery<?> query,
+                                         CriteriaBuilder cb) {
+                Path<String> exp1 = root.get("name");
+                Path<Integer> exp2 = root.get("age");
+                Predicate predicate = cb.and(cb.like(exp1, "richey"), cb.lessThan(exp2, 30));
+                return predicate;
+            }
+        };
+
+        //多表查询
+        Specification<Customer> specification2 = new Specification<Customer>() {
+            @Override
+            public Predicate toPredicate(Root<Customer> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                Join<Customer, Company> join = root.join("company", JoinType.INNER);
+                Path<String> exp1 = join.get("name");
+                return cb.like(exp1, "richey");
+            }
+        };
+
+        customerSpecificationExecutorRepository.findAll(specification2);
+
+    }
+
 }

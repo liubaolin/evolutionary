@@ -1,9 +1,9 @@
 package com.baolinliu.springDataJpa.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * 客户 先开发实体类 ===> 自动生成实体表
@@ -19,6 +19,14 @@ public class Customer {
     private String name;
 
     private Integer age;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    private Date createTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id",referencedColumnName = "id")
+    private Company company;
+
 
     public Long getId() {
         return id;
@@ -42,6 +50,14 @@ public class Customer {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override

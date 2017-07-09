@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 /**
  * Created by richey on 17-5-26.
  */
-public class RicheyUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
+public class RicheyUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private static final String USER_NAME = "userName";
     private static final String PASSWORD = "password";
@@ -34,7 +34,7 @@ public class RicheyUsernamePasswordAuthenticationFilter extends UsernamePassword
 
         //TODO 认证逻辑
         //处理请求信息
-        LoginRequestVO loginRequestVO =  getLoginRequestVO(request);
+        LoginRequestVO loginRequestVO = getLoginRequestVO(request);
 
         WebUser user = userService.getUserByUserNameAndPsd(loginRequestVO.getUserName(), loginRequestVO.getPassword());
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword());
@@ -45,11 +45,12 @@ public class RicheyUsernamePasswordAuthenticationFilter extends UsernamePassword
 
     /**
      * 获取登录请求VO对象
+     *
      * @param request
      * @return
      */
     private LoginRequestVO getLoginRequestVO(HttpServletRequest request) {
-        LoginRequestVO loginRequestVO =  new LoginRequestVO();
+        LoginRequestVO loginRequestVO = new LoginRequestVO();
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
             StringBuilder sb = new StringBuilder();
