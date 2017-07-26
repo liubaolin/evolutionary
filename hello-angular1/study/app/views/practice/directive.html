@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myDirectiveApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS-指令</title>
+</head>
+<body>
+<div ng-controller="ParentController">
+    <my-directive></my-directive>
+    <br>
+    <!--将自定义标签从DOM中完全移除掉-->
+    <my-directive-replace></my-directive-replace>
+
+    <p>We can access:{{rootProperty}} and {{parentProperty}}</p>
+    <div ng-controller="ChildController">
+        <p>
+            We can access :
+            {{rootProperty}} and
+            {{parentProperty}} and
+            {{chileProperty}} and
+        </p>
+        <p>
+            {{fullSentenceFromChild}}
+        </p>
+    </div>
+</div>
+<script src="//cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="../../scripts/practice/directive.js"></script>
+</body>
+</html>

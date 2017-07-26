@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angularjs 过滤器</title>
+</head>
+<body ng-app="filterPractice">
+<div ng-controller="FilterController">
+    <h2>filter后面可以跟对象</h2>
+    <div ng-repeat="people in  peoples | filter: {name:'richey'}">
+        <span>{{people.name}}':'{{people.age}}</span>
+    </div>
+
+    <h2>filter第二个参数：false 表示区分大小写</h2>
+    <div ng-repeat=" i in  ['aa','bb','cc'] | filter: 'AA'">
+        <span>{{i}}</span>
+    </div>
+    <div ng-repeat=" i in  ['aa','bb','cc'] | filter: 'AA':false">
+        <span>{{i}}</span>
+    </div>
+
+    <h2>filter第二个参数：true 表示严格比较</h2>
+    <div ng-repeat=" i in  ['11','22','33'] | filter: 33">
+        <span>{{i}}</span>
+    </div>
+    <div ng-repeat=" i in  ['11','22','33'] | filter: 33 : true">
+        <span>{{i}}</span>
+    </div>
+    <h2>json过滤器 | json</h2>
+    <div>{{ {name:'richey','City':'ShangHai'} | json }}</div>
+
+    <h2>截取字符串过滤器 | limitTo</h2>
+    <div>{{ '通过limitTo过滤器截取字符串' | limitTo:4}}</div>
+
+    <h2>排序过滤器 | orderBy</h2>
+    <h3>字符串</h3>
+    <div>
+        {{ [{name:'richey',age:18},
+        {name:'richey',age:16},
+        {name:'richey',age:17},
+        {name:'java',age:10},
+        {name:'pythen',age:20}
+        ] | orderBy:'name'
+        }}
+    </div>
+    <h3>函数</h3>
+    <div>
+        {{ [{name:'richey',age:18},
+        {name:'richey',age:16},
+        {name:'richey',age:17},
+        {name:'java',age:10},
+        {name:'pythen',age:20}
+        ] | orderBy:ordersFunc
+        }}
+    </div>
+    <h3>数组</h3>
+    <div>
+        {{ [{name:'richey',age:18},
+        {name:'richey',age:16},
+        {name:'richey',age:17},
+        {name:'java',age:10},
+        {name:'pythen',age:20}
+        ] | orderBy:['name','-age']
+        }}
+    </div>
+
+    <h2>自定义过滤器</h2>
+    <div>{{ 'HELLO WORLD' | lowercase | capitalize}}</div>
+
+
+</div>
+
+<script src="//cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="../../scripts/practice/filter.js"></script>
+</body>
+</html>
