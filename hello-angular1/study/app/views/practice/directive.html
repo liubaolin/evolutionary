@@ -6,12 +6,16 @@
 </head>
 <body>
 <div ng-controller="ParentController">
+    <h2>简单的自定义指令</h2>
     <my-directive></my-directive>
     <br>
     <!--将自定义标签从DOM中完全移除掉-->
     <my-directive-replace></my-directive-replace>
-
+    <h2>理解当前作用域的概念</h2>
     <p>We can access:{{rootProperty}} and {{parentProperty}}</p>
+    <p>修改父作用域的值类型，子作用域相应也会变，反之不行</p>
+    <div>Parent some property:<input type="text" ng-model="someProperty" /></div>
+    <div>Parent some Obj property:<input type="text" ng-model="someObj.otherProperty" /></div>
     <div ng-controller="ChildController">
         <p>
             We can access :
@@ -22,7 +26,44 @@
         <p>
             {{fullSentenceFromChild}}
         </p>
+        <!--父子作域-->
+        <input type="text" ng-model="someProperty">
+        <input type="text" ng-model="someObj.otherProperty">
     </div>
+    <h2>向指令中传递数据</h2>
+    <div my-directive-attr
+         my-url="http://google.com"
+         my-link-text="Click me to go to Google"
+         some-property="some property with @ binding"
+         some-attr="some property2 with @someAttr binding">
+    </div>
+    <h2>双向数据绑定</h2>
+    <input type="text" ng-model="theirUrl"/>
+    <div my-directive-bothway some-attr="theirUrl" my-linktext="Click me to go to Google">
+    </div>
+    <a href="http://jsbin.com/IteNita/1/edit?html,output">在线示例</a>
+
+</div>
+<div ng-controller="ScopeController">
+    <h2>指令作用域- scope : false</h2>
+    <div>我的名字是：<span ng-bind="name"></span></div>
+    <div>我的年龄是：<span ng-bind="age"></span></spaN></div>
+    <h3>scope:false的情况</h3>
+    <div scope-false-directive></div>
+    <h3>scope:true的情况</h3>
+    <div scope-true-directive></div>
+    <h3>scope:{}的情况</h3>
+    <div scope-obj-directive my-name="{{name}}" age="age" change-my-age="changeMyAge()"></div>
+</div>
+<div ng-controller="DirectiveController">
+    <h2>默认指令</h2>
+    <h3>ng-selected</h3>
+    <label>Select Two Fish</label>
+    <input  type="checkbox" ng-model="isTwoFish"/>
+    <select>
+        <option>One Fish</option>
+        <option ng-selected="isTwoFish">Two Fish</option>
+    </select>
 </div>
 <script src="//cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <script src="../../scripts/practice/directive.js"></script>
