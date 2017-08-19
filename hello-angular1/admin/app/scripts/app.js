@@ -19,7 +19,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/', {  //路由路径
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'

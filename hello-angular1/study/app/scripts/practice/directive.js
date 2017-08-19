@@ -244,11 +244,5 @@ angular.module("myDirectiveApp", [])
         };
         
     })
-    
-
-;
-
-
-
 
 ;
