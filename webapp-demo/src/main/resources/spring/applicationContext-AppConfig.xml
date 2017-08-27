@@ -14,7 +14,7 @@
 
 
     <!-- ================================================ 装配Bean的配置 ======================================================= -->
-    <!-- 启用注解自动装配Bean(可被<context:component-scan base-package="com.demo.webapp"/>配置代替) -->
+    <!-- 启用注解自动装配Bean,仍需要通过<bean>显式定义Bean   (可被<context:component-scan base-package="com.demo.webapp"/>配置代替) -->
     <!-- <context:annotation-config/>-->
     <!-- 启用注解自动装配bean,并且自动检测和定义Bean(可代替<context:annotation-config/>配置) -->
     <context:component-scan base-package="com.demo.webapp.exception"/>

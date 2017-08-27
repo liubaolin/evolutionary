@@ -14,11 +14,13 @@
         classpath:applicationContext.xml <!--可以用逗号隔开,指定多个值-->
     </param-value>
   </context-param>
+
+
+
+
   <!-- 声明web容器监听器 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-
-
 
 </web-app>
