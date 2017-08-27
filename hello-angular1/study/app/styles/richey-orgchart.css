@@ -1,0 +1,101 @@
+.richey-orgchart{
+    background-color: #c0c0c0;
+    background-image: none;
+}
+
+/* 公共样式 */
+.orgchart .node{
+    width: 220px !important;
+    height: 90px;
+}
+
+.orgchart .node .content{
+    height:60px;
+}
+
+.orgchart .node .content .image{
+    width: 60px;
+    height: 60px;
+    float: left;
+    background-color: #000000;
+    border-bottom-left-radius: 2px;
+}
+
+.orgchart .node .content .image img{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #ffffff;
+}
+
+.orgchart .node .content .info{
+    padding-top: 20px;
+    width: 148px;
+    height: 60px;
+    float: left;
+}
+
+.orgchart .node .add-node-box{
+    position: absolute;
+    display: none;
+    width: 220px;
+    height: 80px;
+    border: 1px solid;
+    background-color: #ffffff;
+    z-index: 999;
+}
+
+.orgchart .node .add-node-box .item {
+    width: 25%;
+    display: block;
+    float: left;
+    border-bottom: 1px solid;
+}
+.orgchart .node .add-node-box .save-node{
+    cursor: pointer;
+    color: red;
+}
+
+
+/* 公司样式 */
+
+.orgchart .richey-orgchart-company .title{
+    background-color: green;
+}
+
+.orgchart .richey-orgchart-company .content{
+    border-color: green;
+}
+
+/* 部门样式 */
+
+.orgchart .richey-orgchart-department .title{
+    background-color: orange;
+}
+
+.orgchart .richey-orgchart-department .content{
+    border-color: orange;
+}
+
+
+
+/* 小组样式 */
+
+.orgchart .richey-orgchart-group .title{
+    background-color: darkseagreen;
+}
+
+.orgchart .richey-orgchart-group .content{
+    border-color: darkseagreen;
+}
+
+
+/* 职位样式 */
+
+.orgchart .richey-orgchart-position .title{
+    background-color: pink;
+}
+
+.orgchart .richey-orgchart-position .content{
+    border-color: pink;
+}

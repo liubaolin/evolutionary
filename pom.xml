@@ -8,8 +8,8 @@
   <modules>
     <module>spring-study-parent</module>
     <module>personalApp</module>
-    <module>webapp</module>
-      <module>javastudy</module>
+    <module>javastudy</module>
+    <module>webapp-demo</module>
   </modules>
   <packaging>pom</packaging>
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+
+  <display-name>webapp-demo</display-name>
+
+  <!-- ========================================= spring ================================================= -->
+  <!-- 指定配置文件 -->
+  <context-param>
+    <param-name>contextConfigLocation></param-name>
+    <param-value>
+        classpath:applicationContext.xml <!--可以用逗号隔开,指定多个值-->
+    </param-value>
+  </context-param>
+  <!-- 声明web容器监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+
+
+</web-app>
