@@ -17,6 +17,11 @@
         <junit.version>4.12</junit.version>
         <org.slf4j.version>1.7.25</org.slf4j.version>
         <spring-framework.version>4.2.5.RELEASE</spring-framework.version>
+        <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <sl4j-log4j12.version>1.7.25</sl4j-log4j12.version>
+        <guava.version>16.0</guava.version>
     </properties>
 
     <repositories>
@@ -32,19 +37,9 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- Spring -->
+
+
+        <!--================================================ Spring相关 ============================================-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -56,13 +51,55 @@
             <artifactId>spring-web</artifactId>
             <version>${spring-framework.version}</version>
         </dependency>
+        <!--================================================ 数据库相关 ============================================-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons-dbcp.version}</version>
+        </dependency>
 
 
+        <!--================================================ java web相关 ============================================-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${javax.servlet-api.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+
+        <!--================================================ 日志相关 ============================================-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+
+        <!--================================================ google工具包 ============================================-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+
+        <!--================================================ 测试相关 ============================================-->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>RELEASE</version>
         </dependency>
     </dependencies>
 
