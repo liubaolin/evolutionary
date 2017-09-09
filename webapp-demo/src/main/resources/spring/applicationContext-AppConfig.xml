@@ -21,20 +21,20 @@
         <property name="location"  value="classpath*:jdbc.properties" />
     </bean>-->
 
-   <!-- <context:property-placeholder location="classpath*:jdbc.properties" file-encoding="utf8"/>
+   <context:property-placeholder location="classpath*:jdbc.properties" file-encoding="utf8"/>
     <bean id="utf8" class="java.lang.String">
         <constructor-arg value="utf-8"></constructor-arg>
-    </bean>-->
+    </bean>
 
     <!-- 自定義加載外部配置文件 -->
-    <bean class="com.demo.webapp.configer.DemoPropertyPlaceholderConfigurer">
+   <!-- <bean class="com.demo.webapp.configer.DemoPropertyPlaceholderConfigurer">
         <property name="searchSystemEnvironment" value="true"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="order" value="1"/>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
         <property name="baseDir" value="etc/demo-web/"/>
         <property name="suffix" value=".properties"/>
-    </bean>
+    </bean>-->
 
 
     <!-- ================================================ 定义数据源 =========================================================== -->
