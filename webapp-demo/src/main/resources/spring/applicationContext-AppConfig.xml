@@ -12,7 +12,7 @@
     <!-- 启用注解自动装配Bean,仍需要通过<bean>显式定义Bean   (可被<context:component-scan base-package="com.demo.webapp"/>配置代替) -->
     <!-- <context:annotation-config/>-->
     <!-- 启用注解自动装配bean,并且自动检测和定义Bean(可代替<context:annotation-config/>配置) -->
-    <context:component-scan base-package="com.demo.webapp.configer"/>
+    <context:component-scan base-package="com.demo.webapp.configer com.demo.webapp.mail"/>
     <!-- 更细力度的Bean装配可以用过滤组建扫描 -->
 
 
@@ -21,20 +21,33 @@
         <property name="location"  value="classpath*:jdbc.properties" />
     </bean>-->
 
-   <context:property-placeholder location="classpath*:jdbc.properties" file-encoding="utf8"/>
+   <!--<context:property-placeholder location="classpath*:jdbc.properties" file-encoding="utf8"/>
+
     <bean id="utf8" class="java.lang.String">
         <constructor-arg value="utf-8"></constructor-arg>
     </bean>
+    -->
+
+    <!--<bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:jdbc.properties</value>
+                <value>classpath*:mail.properties</value>
+            </list>
+        </property>
+    </bean>-->
+
+
 
     <!-- 自定義加載外部配置文件 -->
-   <!-- <bean class="com.demo.webapp.configer.DemoPropertyPlaceholderConfigurer">
+   <bean class="com.demo.webapp.configer.DemoPropertyPlaceholderConfigurer">
         <property name="searchSystemEnvironment" value="true"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="order" value="1"/>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
-        <property name="baseDir" value="etc/demo-web/"/>
+        <property name="baseDir" value="etc/richey/webapp-demo"/>
         <property name="suffix" value=".properties"/>
-    </bean>-->
+    </bean>
 
 
     <!-- ================================================ 定义数据源 =========================================================== -->

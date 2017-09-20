@@ -9,6 +9,26 @@
         p:host="${mailserver.host}"
         p:port="${mailserver.port}"
         p:username="${mailserver.username}"
-        p:password="${mailserver.password}"/>
+        p:password="${mailserver.password}"
+        p:defaultEncoding="utf-8">
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${mailserver.smtp.auth}</prop>               <!--认证机制开关-->
+                <prop key="mail.smtp.starttls.enable">true</prop>    <!-- TLS通讯协议开关，连接qq的SMTP服务器，需使用此通讯协议-->
+                <prop key="mail.smtp.timeout">20000</prop>           <!--连接超时时间，单位毫秒-->
+            </props>
+        </property>
+    </bean>
+
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <value>
+                resource.loader=class
+                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+        </property>
+    </bean>
+
+
 
 </beans>

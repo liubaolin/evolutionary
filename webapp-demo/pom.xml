@@ -26,6 +26,8 @@
         <sl4j-log4j12.version>1.7.25</sl4j-log4j12.version>
         <guava.version>16.0</guava.version>
         <javax.mail.version>1.4</javax.mail.version>
+        <common-lang3.version>3.6</common-lang3.version>
+        <velocity.version>1.7</velocity.version>
     </properties>
 
     <repositories>
@@ -50,6 +52,8 @@
             <version>${spring-framework.version}</version>
             <scope>compile</scope>
         </dependency>
+
+
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -98,12 +102,28 @@
             <version>${guava.version}</version>
         </dependency>
 
+        <!--================================================ apatch工具包 ============================================-->
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${common-lang3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+        </dependency>
+
+
         <!--================================================ java扩展包 ============================================-->
         <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
             <version>${javax.mail.version}</version>
         </dependency>
+
 
         <!--================================================ 测试相关 ============================================-->
         <dependency>
