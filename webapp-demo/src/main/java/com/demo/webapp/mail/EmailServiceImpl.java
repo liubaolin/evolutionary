@@ -1,5 +1,6 @@
 package com.demo.webapp.mail;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamSource;
@@ -51,9 +52,7 @@ s     * @param to
         try {
             //true 表明这个信息是multipart类型的
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom(javaMailSender.getUsername());
-            helper.setTo(emailSummaryInfo.getTo());
-            helper.setSubject(emailSummaryInfo.getSubject());
+            setEmailSummaryInfo(emailSummaryInfo, helper);
             helper.setText(text);
             for (Map.Entry<String, InputStreamSource> entry : attachementMap.entrySet()) {
                 helper.addAttachment(entry.getKey(),entry.getValue());
@@ -74,9 +73,7 @@ s     * @param to
         MimeMessage message = javaMailSender.createMimeMessage();
         //true 表明这个信息是multipart类型的
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom(javaMailSender.getUsername());
-        helper.setTo(emailSummaryInfo.getTo());
-        helper.setSubject(emailSummaryInfo.getSubject());
+        setEmailSummaryInfo(emailSummaryInfo, helper);
         //将文本信息设置为HTML
         helper.setText(htmlText,true);
         for (Map.Entry<String, Resource> entry : cidResourceMap.entrySet()) {
@@ -84,6 +81,7 @@ s     * @param to
         }
         javaMailSender.send(message);
     }
+
 
 
     /**
@@ -102,9 +100,8 @@ s     * @param to
         MimeMessage message = javaMailSender.createMimeMessage();
         //true 表明这个信息是multipart类型的
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom(javaMailSender.getUsername());
-        helper.setTo(emailSummaryInfo.getTo());
-        helper.setSubject(emailSummaryInfo.getSubject());
+        setEmailSummaryInfo(emailSummaryInfo, helper);
+
         //将文本信息设置为HTML
         helper.setText(htmlText,true);
         for (Map.Entry<String, Resource> entry : cidResourceMap.entrySet()) {
@@ -144,6 +141,23 @@ s     * @param to
                                   Map<String,InputStreamSource> attachementMap) throws MessagingException {
         String emailText = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "/emailTemplate/DemoEmailTemplate.vm","utf-8", templateModel);
         sendRichAttachmentEmail(emailSummaryInfo, emailText, cidResourceMap, attachementMap);
+    }
+
+
+    private void setEmailSummaryInfo(EmailSummaryInfo emailSummaryInfo, MimeMessageHelper helper) throws MessagingException {
+        setEmailSummaryInfo(emailSummaryInfo, helper);
+
+        if (StringUtils.isNotBlank(emailSummaryInfo.getTo())) {
+            helper.setTo(emailSummaryInfo.getTo());
+        } else if (emailSummaryInfo.getTos() != null && emailSummaryInfo.getTos().length > 0) {
+            helper.setTo(emailSummaryInfo.getTos());
+        }
+
+        if (StringUtils.isNotBlank(emailSummaryInfo.getCc())) {
+            helper.setCc(emailSummaryInfo.getCc());
+        } else if (emailSummaryInfo.getCcs() != null && emailSummaryInfo.getCcs().length > 0) {
+            helper.setCc(emailSummaryInfo.getCcs());
+        }
     }
 
 }
