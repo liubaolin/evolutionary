@@ -1,4 +1,4 @@
-package com.demo.webapp.mail;
+package com.demo.webapp.common.util.mail;
 
 
 import org.junit.Before;
@@ -13,7 +13,7 @@ import javax.mail.MessagingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmailServiceImplTest {
+public class EmailSenderUtilTest {
 
     ApplicationContext ctx = null;
 
@@ -34,7 +34,7 @@ public class EmailServiceImplTest {
      */
     @Test
     public void testSendMail() {
-        EmailServiceImpl emailService = (EmailServiceImpl) ctx.getBean("emailServiceImpl");
+        EmailSenderUtil emailService = (EmailSenderUtil) ctx.getBean("emailSenderUtil");
         emailService.sendRichEmail("xxx@gmail.com", "hello workd");
     }
 
@@ -44,11 +44,11 @@ public class EmailServiceImplTest {
      */
     @Test
     public void testSendMultipartEmail() {
-        EmailServiceImpl emailService = (EmailServiceImpl) ctx.getBean("emailServiceImpl");
+        EmailSenderUtil emailService = (EmailSenderUtil) ctx.getBean("emailSenderUtil");
         FileSystemResource fileSystemResource = new FileSystemResource("/home/richey/图片/tree.jpg");
 
         EmailSummaryInfo emailSummaryInfo = new EmailSummaryInfo();
-        emailSummaryInfo.setTo("xx.xxx@gmail.com");
+        emailSummaryInfo.setTo("xxx.xxx@gmail.com");
         emailSummaryInfo.setSubject("a velocity email");
 
         Map<String, InputStreamSource> attachmentMap = new HashMap<String, InputStreamSource>();
@@ -64,7 +64,7 @@ public class EmailServiceImplTest {
      */
     @Test
     public void testSendRichTextEmail() {
-        EmailServiceImpl emailService = (EmailServiceImpl) ctx.getBean("emailServiceImpl");
+        EmailSenderUtil emailService = (EmailSenderUtil) ctx.getBean("emailSenderUtil");
         FileSystemResource resource = new FileSystemResource("/home/richey/图片/tree.jpg");
         String htmlText = "<html>\n" +
                 "<body>\n" +
@@ -89,7 +89,7 @@ public class EmailServiceImplTest {
 
     @Test
     public void testSendEmailByVelocity() {
-        EmailServiceImpl emailService = (EmailServiceImpl) ctx.getBean("emailServiceImpl");
+        EmailSenderUtil emailService = (EmailSenderUtil) ctx.getBean("emailSenderUtil");
         FileSystemResource resource = new FileSystemResource("/home/richey/图片/tree.jpg");
         Map<String, Resource> cidResourceMap = new HashMap<>();
         cidResourceMap.put("treeLogo", resource);
@@ -113,7 +113,7 @@ public class EmailServiceImplTest {
 
     @Test
     public void testSendAttachmentVelocityEmail() {
-        EmailServiceImpl emailService = (EmailServiceImpl) ctx.getBean("emailServiceImpl");
+        EmailSenderUtil emailService = (EmailSenderUtil) ctx.getBean("emailSenderUtil");
 
         EmailSummaryInfo emailSummaryInfo = new EmailSummaryInfo();
         emailSummaryInfo.setTo("xx.xx@gmail.com");

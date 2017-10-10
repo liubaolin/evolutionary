@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:encryption="http://www.jasypt.org/schema/encryption"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.jasypt.org/schema/encryption
+        http://www.jasypt.org/schema/encryption/jasypt-spring31-encryption-1.xsd">
+
+    <!--参考http://www.jasypt.org/-->
+
+    <!-- jasypt加密包 -->
+    <!--<bean id="dbPropertyEncryptor"
+          class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor"
+          p:algorithm="PBEWithMD5AndTripleDES" p:config-ref="environmentVariablesConfiguration">
+
+       &lt;!&ndash; <property name="password">
+            <value>jasypt</value>
+        </property>&ndash;&gt;
+    </bean>-->
+
+    <!--jasypt加密配置-->
+    <!--<bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig"
+        p:algorithm="PBEWithMD5AndTripleDES"
+        p:passwordEnvName="DB_ENCRYPTION_PWD">  &lt;!&ndash;将密钥放到环境变量中&ndash;&gt;
+    </bean>-->
+
+    <!--<bean id="propertyConfigurer"
+          class="org.jasypt.spring3.properties.EncryptablePropertyPlaceholderConfigurer">
+        <constructor-arg ref="dbPropertyEncryptor" />
+        <property name="locations">
+            <list>
+                <value>classpath*:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>-->
+
+   <!-- <encryption:string-encryptor id="dbPropertyEncryptor" algorithm="PBEWithMD5AndTripleDES" config-bean="environmentVariablesConfiguration"/>
+    <encryption:encryptor-config id="environmentVariablesConfiguration" algorithm="PBEWithMD5AndTripleDES" password-env-name="DB_ENCRYPTION_PWD"/>
+    <encryption:encryptable-property-placeholder encryptor="dbPropertyEncryptor" location="classpath*:jdbc.properties" />-->
+
+
+</beans>

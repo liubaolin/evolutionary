@@ -1,4 +1,4 @@
-package com.demo.webapp.mail;
+package com.demo.webapp.common.util.mail;
 
 /**
  * 邮件的概要信息

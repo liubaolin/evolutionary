@@ -1,5 +1,6 @@
 package com.demo.webapp.configer;
 
+import com.demo.webapp.common.util.encryption.DESUtils;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class DemoPropertyPlaceholderConfigurer extends PropertyPlaceholderConfig
     private static final Logger logger = LoggerFactory.getLogger(DemoPropertyPlaceholderConfigurer.class);
     private String baseDir;
     private String suffix;
-
+    private String[] encryptPropNames = {};
 
     public DemoPropertyPlaceholderConfigurer() {
         // 默认优先读取环境变量
@@ -37,6 +38,34 @@ public class DemoPropertyPlaceholderConfigurer extends PropertyPlaceholderConfig
     @Override
     public void setLocations(Resource... resourcds) {
         throw new UnsupportedOperationException("please use xxx instead");
+    }
+
+    /**
+     * 支持密文版属性的属性配置器
+     * @param propertyName
+     * @param propertyValue
+     * @return
+     */
+    @Override
+    protected String convertProperty(String propertyName,String propertyValue) {
+        if (isEncryptProp(propertyName)) {
+            return DESUtils.getDecryptStr(propertyValue);
+        }
+        return propertyValue;
+    }
+
+    /**
+     * 判断是否是要进行解密的属性
+     * @param propertyName
+     * @return
+     */
+    private boolean isEncryptProp(String propertyName) {
+        for (String encryptName : encryptPropNames) {
+            if (encryptName.equals(propertyName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void afterPropertiesSet() throws Exception {

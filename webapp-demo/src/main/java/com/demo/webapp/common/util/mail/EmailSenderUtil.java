@@ -1,4 +1,4 @@
-package com.demo.webapp.mail;
+package com.demo.webapp.common.util.mail;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.app.VelocityEngine;
@@ -8,7 +8,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
 import javax.mail.MessagingException;
@@ -20,8 +20,8 @@ import java.util.Map;
  *
  * @author richey
  */
-@Service
-public class EmailServiceImpl {
+@Component
+public class EmailSenderUtil {
 
     @Autowired
     private JavaMailSenderImpl javaMailSender;
@@ -145,7 +145,8 @@ s     * @param to
 
 
     private void setEmailSummaryInfo(EmailSummaryInfo emailSummaryInfo, MimeMessageHelper helper) throws MessagingException {
-        setEmailSummaryInfo(emailSummaryInfo, helper);
+
+        helper.setFrom(javaMailSender.getUsername());
 
         if (StringUtils.isNotBlank(emailSummaryInfo.getTo())) {
             helper.setTo(emailSummaryInfo.getTo());

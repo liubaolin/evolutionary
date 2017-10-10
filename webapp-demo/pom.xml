@@ -14,6 +14,16 @@
 
     <build>
         <finalName>webapp-demo</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <properties>
@@ -28,6 +38,7 @@
         <javax.mail.version>1.4</javax.mail.version>
         <common-lang3.version>3.6</common-lang3.version>
         <velocity.version>1.7</velocity.version>
+        <jasypt.version>1.9.2</jasypt.version>
     </properties>
 
     <repositories>
@@ -52,8 +63,6 @@
             <version>${spring-framework.version}</version>
             <scope>compile</scope>
         </dependency>
-
-
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -122,6 +131,20 @@
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>${javax.mail.version}</version>
+        </dependency>
+
+        <!--================================================ jasypt-加密包 ============================================-->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>${jasypt.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jasypt/jasypt-spring3 -->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt-spring3</artifactId>
+            <version>${jasypt.version}</version>
         </dependency>
 
 
