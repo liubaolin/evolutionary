@@ -16,6 +16,7 @@
     <module>spring-data-jpa</module>
     <module>17010401-springMvcDemo-basedXML</module>
     <module>17051401-spring-security</module>
+    <module>spring-aop</module>
   </modules>
 
   <name>spring-study-parent</name>
