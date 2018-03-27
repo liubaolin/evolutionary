@@ -8,8 +8,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationCextext.xml");
+        //1.读取配置文件实例化一个IoC容器
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //2.从容器中获取Bean
         MoAttack1 moAttack1 = (MoAttack1) context.getBean("moAttack");
+        //3.执行业务逻辑
         moAttack1.cityGataAsk();
     }
 }

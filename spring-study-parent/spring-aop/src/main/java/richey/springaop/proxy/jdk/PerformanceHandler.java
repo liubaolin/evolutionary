@@ -12,6 +12,13 @@ public class PerformanceHandler implements InvocationHandler{
         this.target = target;
     }
 
+    /**
+     * @param proxy   目标对象
+     * @param method  目标类的方法（执行点）
+     * @param args    目标类方法的入参
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         PerformanceMonitor.begin(target.getClass().getName()+"."+method.getName());
