@@ -7,7 +7,7 @@
     <!--
         ProxyFactoryBean负责为其它Bean创建代理类，常见的属性配置如下：
             target: 代理的目标对象;
-            proxyInterfaces:代理所要实现的接口，可以是多个接口，该属性还有一个别名属性interfaces;
+             :代理所要实现的接口，可以是多个接口，该属性还有一个别名属性interfaces;
             interceptorNames:需要织入目标对象的Bean列表，采用Bean的名称指定，这些Bean必须是实现了org.aopalliance.intercept.MethodInterceptor
                 或org.springframework.aop.MethodBeforeAdvice的Bean,配置中的顺序对应调用顺序
             sigleton:返回的代理是否是单例，默认是单例
