@@ -15,20 +15,34 @@
             proxyTargetClass:是否对类进行代理（而不是对接口进行代理），设置为true时，使用CGLib代理。设置为true时将忽略proxyInterfaces属性。
     -->
 
+    <!--前置增强-->
+    <!--指定代理的接口(使用CGLlib时不需要)，指定使用的代理，指定对那个类进行代理-->
     <bean id="eatBeforeAdvice" class="richey.springaop.advice.EatBeforeAdvice"/>
-    <bean id="targetObj" class="richey.springaop.advice.entity.Engineer"/>
+    <bean id="engineerTarget" class="richey.springaop.advice.entity.Engineer"/>
     <bean id="engineer" class="org.springframework.aop.framework.ProxyFactoryBean"
-        p:proxyInterfaces="richey.springaop.advice.entity.People"
-        p:interceptorNames="eatBeforeAdvice"
-        p:target-ref="targetObj"
+          p:proxyInterfaces="richey.springaop.advice.entity.People"
+          p:interceptorNames="eatBeforeAdvice"
+          p:target-ref="engineerTarget"
     />
 
 
+    <!--异常抛出增强-->
     <bean id="transactionManager" class="richey.springaop.advice.TransactionManager"/>
     <bean id="staffServiceTarget" class="richey.springaop.advice.service.StaffService"/>
     <bean id="staffService" class="org.springframework.aop.framework.ProxyFactoryBean"
-    p:interceptorNames="transactionManager"
-    p:target-ref="staffServiceTarget"
-    p:proxyTargetClass="true"/>
+          p:interceptorNames="transactionManager"
+          p:target-ref="staffServiceTarget"
+          p:proxyTargetClass="true"/>
+
+    <!--引介增强-->
+    <!--由于引介增强一定要通过创建子类生成代理，所以要强制使用CGLib-->
+    <bean id="pmonitor" class="richey.springaop.advice.ControllablePerformanceMonitor"></bean>
+    <bean id="peopleWithMonitor" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:interfaces="richey.springaop.advice.Monitorable"
+          p:target-ref="engineerTarget"
+          p:interceptorNames="pmonitor"
+          p:proxyTargetClass="true"
+    />
+
 
 </beans>

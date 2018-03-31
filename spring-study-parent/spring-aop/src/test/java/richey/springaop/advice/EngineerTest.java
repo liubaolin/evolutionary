@@ -55,4 +55,17 @@ public class EngineerTest {
         proxyObj.eat("餐厅");
     }
 
+    @Test
+    public void engineerEatPerformanceMonitorTest() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        People people = (People) ctx.getBean("peopleWithMonitor");
+        people.eat("肯德基");
+        //开启性能监控功能，实际并没有实现Monitorable接口，通过引介增强实现
+        Monitorable monitorable = (Monitorable) people;
+        monitorable.setMonitorActive(true);
+        people.eat("麦当劳");
+    }
+
+
+
 }
