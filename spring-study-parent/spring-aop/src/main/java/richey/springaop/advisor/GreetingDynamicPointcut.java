@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *  动态切点
  */
 public class GreetingDynamicPointcut extends DynamicMethodMatcherPointcut {
 

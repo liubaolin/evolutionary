@@ -55,5 +55,16 @@ public class GreetingAdvisorTest {
 
     }
 
+    @Test
+    public void greetingAdvisorWithComposablePointcutTest() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Waiter waiter = (Waiter) ctx.getBean("waiter4");
+        WaiterDelegate waiterDelegate = new WaiterDelegate();
+        waiterDelegate.setWaiter(waiter);
+        waiterDelegate.service("richey");
+
+    }
+
+
 
 }
