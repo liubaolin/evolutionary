@@ -111,13 +111,26 @@
 
     <!--引介增强-->
     <bean id="introduceAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
-        <constructor-arg >
+        <constructor-arg>
             <bean class="richey.springaop.advice.ControllablePerformanceMonitor"/>
         </constructor-arg>
     </bean>
     <bean id="staffService1" class="org.springframework.aop.framework.ProxyFactoryBean"
-        p:interceptorNames="introduceAdvisor"
-        p:target-ref="waiterTarget"
-        p:proxyTargetClass="true"/>
-    
+          p:interceptorNames="introduceAdvisor"
+          p:target-ref="waiterTarget"
+          p:proxyTargetClass="true"/>
+
+
+    <!--自动创建代理-->
+    <!--自动创建代理后我们就不需要为每个需要代理的Bean用ProxyFactoryBean进行配置了-->
+
+    <!--====基于Bean配置名规则====-->
+    <!--  <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"
+      p:beanNames="*er"
+      p:interceptorNames="greetingAdvice"
+      p:optimize="true"/>-->
+    <!--====基于Advisor匹配机制====-->
+    <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
+
+
 </beans>
