@@ -1,6 +1,6 @@
 package richey.springaop.advice.service;
 
-import richey.springaop.advice.entity.Staff;
+import richey.springaop.entity.Staff;
 
 import java.sql.SQLException;
 

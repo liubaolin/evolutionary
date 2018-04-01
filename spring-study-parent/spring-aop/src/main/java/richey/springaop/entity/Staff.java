@@ -1,4 +1,4 @@
-package richey.springaop.advice.entity;
+package richey.springaop.entity;
 
 public class Staff {
 

@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import richey.springaop.advice.entity.Staff;
+import richey.springaop.entity.Staff;
 
 public class StaffServiceTest {
 

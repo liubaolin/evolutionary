@@ -5,12 +5,14 @@ import org.junit.Test;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import richey.springaop.advice.entity.Engineer;
-import richey.springaop.advice.entity.People;
+import richey.springaop.entity.Engineer;
+import richey.springaop.entity.People;
 
 public class EngineerTest {
 
-
+    /**
+     * 这里用代理工厂的方式织入代理类，也可以通过配置的方式
+     */
     @Test
     public void engineerEatBeforeWithProxyFactoryTest() {
 
