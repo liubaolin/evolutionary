@@ -45,5 +45,15 @@ public class GreetingAdvisorTest {
         waiter.serveTo("John");
     }
 
+    @Test
+    public void greetingAdvisorWithControlFlowPointcutTest() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Waiter waiter = (Waiter) ctx.getBean("waiter3");
+        WaiterDelegate waiterDelegate = new WaiterDelegate();
+        waiterDelegate.setWaiter(waiter);
+        waiterDelegate.service("richey");
+
+    }
+
 
 }
