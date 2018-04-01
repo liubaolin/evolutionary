@@ -44,18 +44,47 @@
           p:proxyTargetClass="true"
     />
 
-
+    <!--静态普通方法名匹配切面-->
     <bean id="waiterTarget" class="richey.springaop.entity.Waiter"/>
     <bean id="sellerTarget" class="richey.springaop.entity.Seller"/>
-
     <bean id="greetingAdvice" class="richey.springaop.advisor.GreetingAdvice"/>
     <bean id="greetingAdvisor" class="richey.springaop.advisor.GreetingAdvisor" p:advice-ref="greetingAdvice"/>
-
     <bean id="parent" abstract="true" class="org.springframework.aop.framework.ProxyFactoryBean"
           p:interceptorNames="greetingAdvisor"
           p:proxyTargetClass="true"/>
     <bean id="waiter" parent="parent" p:target-ref="waiterTarget"/>
     <bean id="sellter" parent="parent" p:target-ref="sellerTarget"/>
+
+
+    <!--静态正则表达式匹配切面-->
+    <!--匹配模式串匹配的是目标方法的全限定名-->
+    <bean id="regexpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"
+          p:advice-ref="greetingAdvice">
+        <property name="patterns">
+            <list>
+                <value>.*greet.*</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="waiter1" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:interceptorNames="regexpAdvisor"
+          p:target-ref="waiterTarget"
+          p:proxyTargetClass="true"/>
+
+
+    <!--动态切面配置-->
+    <bean id="dynamicAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut">
+            <bean class="richey.springaop.advisor.GreetingDynamicPointcut"/>
+        </property>
+        <property name="advice">
+            <bean class="richey.springaop.advisor.GreetingAdvice"/>
+        </property>
+    </bean>
+    <bean id="waiter2" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:interceptorNames="dynamicAdvisor"
+          p:target-ref="waiterTarget"
+          p:proxyTargetClass="true"/>
 
 
 </beans>

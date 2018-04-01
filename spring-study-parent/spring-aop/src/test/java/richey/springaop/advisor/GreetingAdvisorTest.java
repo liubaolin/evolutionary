@@ -9,7 +9,7 @@ import richey.springaop.entity.Waiter;
 public class GreetingAdvisorTest {
 
     @Test
-    public void greetingADvisorTest() {
+    public void greetingAdvisorWithStaticMethodMatchTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         Waiter waiter = (Waiter) ctx.getBean("waiter");
         Seller sellter = (Seller) ctx.getBean("sellter");
@@ -19,5 +19,31 @@ public class GreetingAdvisorTest {
         sellter.greetTo("richey");
 
     }
+
+
+    @Test
+    public void greetingAdvisorWithRegexpMethodTest() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Waiter waiter = (Waiter) ctx.getBean("waiter1");
+
+        waiter.greetTo("richey");
+        waiter.serveTo("richey");
+
+    }
+
+
+    @Test
+    public void greetingAdvisorWithDynamicMethodMatchTest() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Waiter waiter = (Waiter) ctx.getBean("waiter2");
+
+        waiter.greetTo("richey");
+        waiter.serveTo("richey");
+        waiter.greetTo("kelly");
+        waiter.serveTo("kelly");
+        waiter.greetTo("John");
+        waiter.serveTo("John");
+    }
+
 
 }
