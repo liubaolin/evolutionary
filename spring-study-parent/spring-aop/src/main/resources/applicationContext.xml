@@ -144,4 +144,9 @@
     <!--<aop:aspectj-autoproxy/>-->
 
 
+    <!--引介增强-->
+    <bean id="singer" class="richey.springaop.Aspectj.SuperSinger"/>
+    <bean id="dancer" class="richey.springaop.Aspectj.SuperDancer"/>
+    <bean class="richey.springaop.Aspectj.EnableSingerAspect"/>
+
 </beans>
