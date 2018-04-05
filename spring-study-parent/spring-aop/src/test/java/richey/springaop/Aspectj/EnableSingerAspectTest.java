@@ -10,7 +10,7 @@ public class EnableSingerAspectTest {
      * 引介增强测试
      */
     @Test
-    public void declareParentsTest() {
+    public void DeclareParentsTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         Singer singer = (Singer) ctx.getBean("singer");
         singer.sing();
