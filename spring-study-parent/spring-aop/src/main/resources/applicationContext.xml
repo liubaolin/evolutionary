@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
     <!--
@@ -131,6 +132,16 @@
       p:optimize="true"/>-->
     <!--====基于Advisor匹配机制====-->
     <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
+
+
+    <!--通过配置使用@AspectJ切面-->
+    <bean id="driver" class="richey.springaop.Aspectj.Driver"/>
+    <bean class="richey.springaop.Aspectj.PreDriveAspect"/>
+    <!--方式1:自动代理创建，自动将@AspectJ注解的切面织入到目标bean中-->
+    <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"/>
+
+    <!--方式2:基于Schema的aop命名空间进行配置  方式1和方式2用其中一种就可以了-->
+    <!--<aop:aspectj-autoproxy/>-->
 
 
 </beans>
