@@ -9,11 +9,11 @@
 
 ## Quick Start
 
-### 通过编程的方式织入@AspectJ切面
+#### 通过编程的方式织入@AspectJ切面
     PreDriveAspect#beforeDrive()
     PreDriveAspectTest#beforeDriveTest()
 
-### 通过配置使用@AspectJ切面
+#### 通过配置使用@AspectJ切面
 
      <!--通过配置使用@AspectJ切面-->
      <bean class="richey.springaop.Aspectj.PreDriveAspect"/>
@@ -21,3 +21,8 @@
      <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"/>
      <!--方式2:基于Schema的aop命名空间进行配置  方式1和方式2用其中一种就可以了-->
      <aop:aspectj-autoproxy/>
+
+## 引介增强用法
+
+    <bean class="richey.springaop.Aspectj.EnableSingerAspect"/>
+    EnableSingerAspectTest#declareParentsTest()
