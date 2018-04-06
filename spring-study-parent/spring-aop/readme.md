@@ -33,3 +33,13 @@
 
     <bean class="richey.springaop.Aspectj.TestAspect"/>
     AspectFuntionTest#annotationTest()
+
+#### 复合切点运算
+
+    TestAspect#TestAspect()
+    AspectFuntionTest#aspectTest()
+
+#### 切点命名
+
+    <bean class="richey.springaop.Aspectj.TestNamePointcut"/>
+    AspectFuntionTest#aspectTest()
