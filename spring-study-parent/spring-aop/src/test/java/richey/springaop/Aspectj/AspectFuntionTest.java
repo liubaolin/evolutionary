@@ -22,7 +22,14 @@ public class AspectFuntionTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         Singer singer  = (Singer) ctx.getBean("singer");
         singer.songWriting();
-        singer.sing();
+        singer.singSomeSong();
+    }
+
+    @Test
+    public void testGetJoinPointInfo() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Singer singer  = (Singer) ctx.getBean("singer");
+        singer.singSomeSong("我们不一样");
     }
 
 }

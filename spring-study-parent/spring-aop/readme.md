@@ -43,3 +43,8 @@
 
     <bean class="richey.springaop.Aspectj.TestNamePointcut"/>
     AspectFuntionTest#aspectTest()
+
+#### 访问连节点信息
+
+    TestAspect#testGetJoinpointInfo()
+    AspectFuntionTest#testGetJoinPointInfo()

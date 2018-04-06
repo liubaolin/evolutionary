@@ -15,7 +15,7 @@ public class EnableSingerAspectTest {
     public void DeclareParentsTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         Singer singer = (Singer) ctx.getBean("singer");
-        singer.sing();
+        singer.singSomeSong();
         Dancer dancer = (Dancer) singer;//通过引介增强，这里可以进行强制类型转换
         dancer.dance();
     }

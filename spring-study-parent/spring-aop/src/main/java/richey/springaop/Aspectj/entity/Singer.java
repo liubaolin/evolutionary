@@ -5,7 +5,9 @@ package richey.springaop.Aspectj.entity;
  */
 public interface Singer {
 
-    public void sing() ;
+    public void singSomeSong() ;
+
+    public void singSomeSong(String songName);
 
     public void songWriting();
 

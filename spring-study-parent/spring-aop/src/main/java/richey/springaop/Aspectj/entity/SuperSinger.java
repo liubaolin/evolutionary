@@ -4,8 +4,13 @@ import richey.springaop.Aspectj.NeedTest;
 
 public class SuperSinger implements Singer {
     @Override
-    public void sing() {
+    public void singSomeSong() {
         System.out.println("我们不一样，不一样，每个人都有不同的境遇~~~~~");
+    }
+
+    @Override
+    public void singSomeSong(String songName) {
+        System.out.println("开始唱" + songName + "这首歌");
     }
 
     @Override
@@ -16,6 +21,6 @@ public class SuperSinger implements Singer {
     @NeedTest
     @Override
     public void singForAnnotation() {
-        System.out.println("sing~~for annotation~~");
+        System.out.println("singSomeSong~~for annotation~~");
     }
 }
