@@ -149,4 +149,8 @@
     <bean id="dancer" class="richey.springaop.Aspectj.entity.SuperDancer"/>
     <bean class="richey.springaop.Aspectj.EnableSingerAspect"/>
 
+    <!--切点函数@annotation-->
+    <bean class="richey.springaop.Aspectj.TestAspect"/>
+
+
 </beans>

@@ -29,3 +29,7 @@
     
 ## 切点函数示例
 
+#### @annotation
+
+    <bean class="richey.springaop.Aspectj.TestAspect"/>
+    AspectFuntionTest#annotationTest()
