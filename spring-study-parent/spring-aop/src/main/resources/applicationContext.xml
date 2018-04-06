@@ -135,7 +135,7 @@
 
 
     <!--通过配置使用@AspectJ切面-->
-    <bean id="driver" class="richey.springaop.Aspectj.Driver"/>
+    <bean id="driver" class="richey.springaop.Aspectj.entity.Driver"/>
     <bean class="richey.springaop.Aspectj.PreDriveAspect"/>
     <!--方式1:自动代理创建，自动将@AspectJ注解的切面织入到目标bean中-->
     <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"/>
@@ -145,8 +145,8 @@
 
 
     <!--引介增强-->
-    <bean id="singer" class="richey.springaop.Aspectj.SuperSinger"/>
-    <bean id="dancer" class="richey.springaop.Aspectj.SuperDancer"/>
+    <bean id="singer" class="richey.springaop.Aspectj.entity.SuperSinger"/>
+    <bean id="dancer" class="richey.springaop.Aspectj.entity.SuperDancer"/>
     <bean class="richey.springaop.Aspectj.EnableSingerAspect"/>
 
 </beans>

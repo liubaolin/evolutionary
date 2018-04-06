@@ -1,4 +1,4 @@
-package richey.springaop.Aspectj;
+package richey.springaop.Aspectj.entity;
 
 public class SuperSinger implements Singer {
     @Override

@@ -3,6 +3,8 @@ package richey.springaop.Aspectj;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import richey.springaop.Aspectj.entity.Dancer;
+import richey.springaop.Aspectj.entity.Singer;
 
 public class EnableSingerAspectTest {
 

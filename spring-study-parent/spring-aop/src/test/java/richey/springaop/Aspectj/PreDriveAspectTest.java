@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import richey.springaop.Aspectj.entity.Driver;
 
 public class PreDriveAspectTest {
 

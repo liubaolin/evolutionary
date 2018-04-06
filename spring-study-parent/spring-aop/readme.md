@@ -26,3 +26,6 @@
 
     <bean class="richey.springaop.Aspectj.EnableSingerAspect"/>
     EnableSingerAspectTest#declareParentsTest()
+    
+## 切点函数示例
+
