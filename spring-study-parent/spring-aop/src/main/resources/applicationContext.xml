@@ -152,5 +152,8 @@
     <!--切点函数@annotation-->
     <bean class="richey.springaop.Aspectj.TestAspect"/>
 
+    <!--命名切点-->
+    <bean class="richey.springaop.Aspectj.TestNamePointcut"/>
+
 
 </beans>

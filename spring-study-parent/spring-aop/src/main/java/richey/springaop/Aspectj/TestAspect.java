@@ -1,5 +1,6 @@
 package richey.springaop.Aspectj;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -27,6 +28,13 @@ public class TestAspect {
         System.out.println("通过复合切点表达式定位切点");
     }
 
+    /**
+     * 测试使用命名测点
+     */
+    @After("richey.springaop.Aspectj.TestNamePointcut.sing()")
+    public void testNamePointcut() {
+        System.out.println("这是通过命名切点匹配的增强逻辑");
+    }
 
 
 }

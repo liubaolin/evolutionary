@@ -15,13 +15,14 @@ public class AspectFuntionTest {
     }
 
     /**
-     * 测试复合切点
+     * 测试复合切点 和 切点命名
      */
     @Test
     public void aspectTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         Singer singer  = (Singer) ctx.getBean("singer");
         singer.songWriting();
+        singer.sing();
     }
 
 }
