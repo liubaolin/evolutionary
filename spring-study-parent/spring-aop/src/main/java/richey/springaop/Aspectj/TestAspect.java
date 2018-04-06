@@ -6,6 +6,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import richey.springaop.Aspectj.entity.Singer;
 
 /**
  * 切点函数示例
@@ -61,6 +62,18 @@ public class TestAspect {
         System.out.println("times:" + times);
         System.out.println("---- testBindJoinPointParams end ----");
     }
+
+    /**
+     * 绑定被代理对象实例
+     * @param singer
+     */
+    @Before("this(singer)")
+    public void testBindProxyObj(Singer singer) {
+        System.out.println("---- bindProxyObj start ----");
+        System.out.println(singer.getClass().getName());
+        System.out.println("---- bindProxyObj end ----");
+    }
+
 
 
 }

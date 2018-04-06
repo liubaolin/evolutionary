@@ -43,7 +43,16 @@ public class AspectFuntionTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         Singer singer = (Singer) ctx.getBean("singer");
         singer.singSomeSong("我们不一样", 5);
+    }
 
+    /**
+     * 测试绑定被代理对象实例
+     */
+    @Test
+    public void testBindProxyObj() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Singer singer = (Singer) ctx.getBean("singer");
+        singer.singSomeSong("海草");
     }
 
 
