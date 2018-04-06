@@ -74,6 +74,16 @@ public class TestAspect {
         System.out.println("---- bindProxyObj end ----");
     }
 
+    /**
+     * 绑定类注解对象
+     * @param n
+     */
+   @Before("@within(n)")
+    public void testBindTypeAnnotation(NeetTestForStreetSinger n) {
+       System.out.println("---- testBindTypeAnnotation start ----");
+       System.out.println(n.getClass().getName());
+       System.out.println("---- testBindTypeAnnotation end ----");
+    }
 
 
 }

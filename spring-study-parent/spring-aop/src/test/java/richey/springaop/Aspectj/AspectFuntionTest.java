@@ -55,5 +55,15 @@ public class AspectFuntionTest {
         singer.singSomeSong("海草");
     }
 
+    /**
+     * 测试绑定类注解对象
+     */
+    @Test
+    public void testBindTypeAnnotation() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Singer singer = (Singer) ctx.getBean("streetSinger");
+        singer.singSomeSong();
+
+    }
 
 }

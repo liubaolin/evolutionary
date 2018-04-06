@@ -56,3 +56,7 @@
 #### 绑定被代理对象实例
 
     TestAspect#testBindProxyObj()
+
+#### 绑定类注解对象
+
+    TestAspect#testBindTypeAnnotation()

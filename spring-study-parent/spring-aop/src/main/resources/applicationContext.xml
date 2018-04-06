@@ -155,5 +155,6 @@
     <!--命名切点-->
     <bean class="richey.springaop.Aspectj.TestNamePointcut"/>
 
+    <bean id="streetSinger" class="richey.springaop.Aspectj.entity.StreetSinger"/>
 
 </beans>
