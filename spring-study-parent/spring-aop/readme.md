@@ -60,3 +60,9 @@
 #### 绑定类注解对象
 
     TestAspect#testBindTypeAnnotation()
+
+#### 绑定返回值
+
+    TestAspect#testBindReturnValue()
+
+#### 绑定抛出的异常

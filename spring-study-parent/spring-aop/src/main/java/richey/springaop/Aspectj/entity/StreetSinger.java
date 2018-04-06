@@ -28,4 +28,5 @@ public class StreetSinger implements Singer {
     public void singForAnnotation() {
         System.out.println("流浪歌手：" + "singForAnnotation");
     }
+
 }

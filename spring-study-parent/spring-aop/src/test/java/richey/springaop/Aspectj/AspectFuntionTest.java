@@ -3,6 +3,7 @@ package richey.springaop.Aspectj;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import richey.springaop.Aspectj.entity.Driver;
 import richey.springaop.Aspectj.entity.Singer;
 
 public class AspectFuntionTest {
@@ -64,6 +65,16 @@ public class AspectFuntionTest {
         Singer singer = (Singer) ctx.getBean("streetSinger");
         singer.singSomeSong();
 
+    }
+
+    /**
+     * 测试绑定返回值
+     */
+    @Test
+    public void testBindReturnValue() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Driver driver= (Driver) ctx.getBean("driver");
+        driver.currentSpeed();
     }
 
 }

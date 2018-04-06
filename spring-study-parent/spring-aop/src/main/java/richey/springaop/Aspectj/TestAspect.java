@@ -53,18 +53,20 @@ public class TestAspect {
      * 测试连接点参数绑定
      * 注意此处args(songName,times)中的songName和times名称必须和增强方法中的一致,但是顺序可以不一致
      * 但是匹配的时候以args中参数类型的顺序为准
+     *
      * @param times
      * @param songName
      */
     @Before("target(richey.springaop.Aspectj.entity.SuperSinger) && args(songName,times,..)")
-    public void testBindJoinPointParams(int times,String songName) {
-        System.out.println("songName:"+songName);
+    public void testBindJoinPointParams(int times, String songName) {
+        System.out.println("songName:" + songName);
         System.out.println("times:" + times);
         System.out.println("---- testBindJoinPointParams end ----");
     }
 
     /**
      * 绑定被代理对象实例
+     *
      * @param singer
      */
     @Before("this(singer)")
@@ -76,13 +78,24 @@ public class TestAspect {
 
     /**
      * 绑定类注解对象
+     *
      * @param n
      */
-   @Before("@within(n)")
+    @Before("@within(n)")
     public void testBindTypeAnnotation(NeetTestForStreetSinger n) {
-       System.out.println("---- testBindTypeAnnotation start ----");
-       System.out.println(n.getClass().getName());
-       System.out.println("---- testBindTypeAnnotation end ----");
+        System.out.println("---- testBindTypeAnnotation start ----");
+        System.out.println(n.getClass().getName());
+        System.out.println("---- testBindTypeAnnotation end ----");
+    }
+
+    /**
+     * 绑定返回值
+     */
+    @AfterReturning(value = "target(richey.springaop.Aspectj.entity.Driver)", returning = "speed")
+    public void testBindReturnValue(String speed) {
+        System.out.println("---- testBindReturnValue start ----");
+        System.out.println("now speed is :" + speed);
+        System.out.println("---- testBindReturnValue end ----");
     }
 
 

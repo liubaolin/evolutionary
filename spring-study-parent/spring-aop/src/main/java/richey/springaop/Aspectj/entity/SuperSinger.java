@@ -31,4 +31,5 @@ public class SuperSinger implements Singer {
     public void singForAnnotation() {
         System.out.println("singSomeSong~~for annotation~~");
     }
+
 }

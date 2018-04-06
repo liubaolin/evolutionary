@@ -10,4 +10,9 @@ public class Driver {
         System.out.println("发车了~~~");
     }
 
+    public String currentSpeed() {
+        return "100km/h";
+    }
+
+
 }
