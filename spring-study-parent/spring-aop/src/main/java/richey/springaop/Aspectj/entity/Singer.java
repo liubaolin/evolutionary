@@ -9,6 +9,8 @@ public interface Singer {
 
     public void singSomeSong(String songName);
 
+    public void singSomeSong(String songName, int times);
+
     public void songWriting();
 
     /**

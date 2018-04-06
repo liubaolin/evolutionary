@@ -2,6 +2,9 @@ package richey.springaop.Aspectj.entity;
 
 import richey.springaop.Aspectj.NeedTest;
 
+/**
+ * @author richey
+ */
 public class SuperSinger implements Singer {
     @Override
     public void singSomeSong() {
@@ -11,6 +14,11 @@ public class SuperSinger implements Singer {
     @Override
     public void singSomeSong(String songName) {
         System.out.println("开始唱" + songName + "这首歌");
+    }
+
+    @Override
+    public void singSomeSong(String songName, int times) {
+        System.out.println("唱" + times + "次" + songName);
     }
 
     @Override

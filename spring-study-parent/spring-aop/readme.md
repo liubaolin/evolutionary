@@ -48,3 +48,7 @@
 
     TestAspect#testGetJoinpointInfo()
     AspectFuntionTest#testGetJoinPointInfo()
+    
+#### 测试绑定连节点方法入参
+
+    AspectFuntionTest#testBindJoinPointParams()

@@ -48,6 +48,20 @@ public class TestAspect {
         System.out.println("---- testGetJoinpointInfo end ----");
     }
 
+    /**
+     * 测试连接点参数绑定
+     * 注意此处args(songName,times)中的songName和times名称必须和增强方法中的一致,但是顺序可以不一致
+     * 但是匹配的时候以args中参数类型的顺序为准
+     * @param times
+     * @param songName
+     */
+    @Before("target(richey.springaop.Aspectj.entity.SuperSinger) && args(songName,times,..)")
+    public void testBindJoinPointParams(int times,String songName) {
+        System.out.println("songName:"+songName);
+        System.out.println("times:" + times);
+        System.out.println("---- testBindJoinPointParams end ----");
+    }
+
 
 }
 
