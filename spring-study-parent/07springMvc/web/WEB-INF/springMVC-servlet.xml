@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.2.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+        mvc:annotation-driven是 Spring MVC提供的一键式配置方法
+        配置此标签后Spring MVC会帮我们自动做一些注册组件之类的事情
+    -->
+    <mvc:annotation-driven/>
+    <!--扫描通过注解配置的类-->
+    <context:component-scan base-package="top.richpeople">
+        <!--如果使用了spring,可以用context:include-filter设置只扫描@Controller别的交给Spring容器去管理-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    </context:component-scan>
+
+
+    <!-- 设置Locale -->
+    <!--<mvc:interceptors>-->
+    <!--<mvc:interceptor>-->
+    <!--<mvc:mapping path="/*"/>-->
+    <!--<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>-->
+    <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+    <!-- 自定义装配HttpMessageConverter start -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"
+          p:messageConverters-ref="myConverters"/>
+    <util:list id="myConverters">
+        <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter"/>
+    </util:list>
+    <!-- 自定义装配HttpMessageConverter end -->
+
+    <!-- 文件上传配置 start -->
+    <!-- uploadTempDir:上传文件的临时路径，文件上传完成后临时目录中的文件会被清除 -->
+    <bean id="mutipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+    p:defaultEncoding="UTF-8"
+    p:maxUploadSize="5242880"
+    p:uploadTempDir="file:/d:/temp"/>
+    <!-- 文件上传配置 end -->
+
+    <!-- 拦截器配置  start -->
+   <!-- <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/secure/*"/>
+            <bean class="" />
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+    <!-- 拦截器配置  end -->
+
+
+</beans>

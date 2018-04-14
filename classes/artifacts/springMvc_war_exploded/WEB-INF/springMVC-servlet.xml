@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.2.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd ">
+
+    <!--
+        mvc:annotation-driven是 Spring MVC提供的一键式配置方法
+        配置此标签后Spring MVC会帮我们自动做一些注册组件之类的事情
+    -->
+    <mvc:annotation-driven/>
+    <!--扫描通过注解配置的类-->
+    <context:component-scan base-package="top.richpeople">
+        <!--如果使用了spring,可以用context:include-filter设置只扫描@Controller别的交给Spring容器去管理-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    </context:component-scan>
+
+</beans>

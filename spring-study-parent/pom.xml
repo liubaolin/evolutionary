@@ -8,14 +8,14 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>16112001-helloword</module>
-        <module>16112301-loosecouplingDemo</module>
-        <module>17010201-javaConfig</module>
-        <module>16112801-SpringIoc</module>
-        <module>17010101-springEvent</module>
+        <module>01helloword</module>
+        <module>02loosecouplingDemo</module>
+        <module>03SpringIoc</module>
+        <module>04springEvent</module>
+        <module>05javaConfig</module>
         <module>spring-data-jpa</module>
-        <module>17010401-springMvcDemo-basedXML</module>
-        <module>17051401-spring-security</module>
+        <module>springMvc</module>
+        <module>spring-security</module>
         <module>spring-aop</module>
     </modules>
 

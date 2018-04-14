@@ -1,1 +1,0 @@
-一个基于xml的springMVC配置
