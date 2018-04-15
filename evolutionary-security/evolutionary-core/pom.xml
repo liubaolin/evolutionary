@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>evolutionary-core</artifactId>
+    <packaging>jar</packaging>
 
     <name>evolutionary-core</name>
     <!-- FIXME change it to the project's website -->
@@ -30,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
