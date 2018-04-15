@@ -14,9 +14,9 @@
         <module>04springEvent</module>
         <module>05javaConfig</module>
         <module>spring-data-jpa</module>
-        <module>springMvc</module>
+        <module>07springMvc</module>
         <module>spring-security</module>
-        <module>spring-aop</module>
+        <module>06spring-aop</module>
     </modules>
 
     <name>spring-study-parent</name>
