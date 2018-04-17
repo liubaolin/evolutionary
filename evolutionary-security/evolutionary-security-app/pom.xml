@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>evolutionary-security-app</artifactId>
-    <packaging>jar</packaging>
 
     <name>evolutionary-security-app</name>
     <!-- FIXME change it to the project's website -->
@@ -22,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>top.evolutionary.security</groupId>
-            <artifactId>evolutionary-core</artifactId>
+            <artifactId>evolutionary-security-core</artifactId>
             <version>${evolutionary.security.version}</version>
         </dependency>
     </dependencies>

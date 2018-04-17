@@ -15,7 +15,6 @@
         <module>05javaConfig</module>
         <module>spring-data-jpa</module>
         <module>07springMvc</module>
-        <module>spring-security</module>
         <module>06spring-aop</module>
     </modules>
 

@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>evolutionary-security-browser</artifactId>
-    <packaging>jar</packaging>
 
     <name>evolutionary-security-browser</name>
     <!-- FIXME change it to the project's website -->
@@ -19,12 +18,12 @@
     <dependencies>
         <dependency>
             <groupId>top.evolutionary.security</groupId>
-            <artifactId>evolutionary-core</artifactId>
+            <artifactId>evolutionary-security-core</artifactId>
             <version>${evolutionary.security.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-core</artifactId>
+            <artifactId>spring-session</artifactId>
         </dependency>
     </dependencies>
 

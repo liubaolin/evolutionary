@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>evolutionary-core</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>evolutionary-security-core</artifactId>
 
     <name>evolutionary-core</name>
     <!-- FIXME change it to the project's website -->
