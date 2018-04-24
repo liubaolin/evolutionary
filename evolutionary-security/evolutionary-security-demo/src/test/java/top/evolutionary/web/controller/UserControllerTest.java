@@ -8,11 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import top.evolutionary.security.DemoApplication;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
@@ -31,17 +33,36 @@ public class UserControllerTest {
     //TODO 添加到静态方法
     @Test
     public void whenQuerySuccess() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/user")
-                .param("username","richey")
-                .param("age","18")
+        String result = mockMvc.perform(get("/user")
+                .param("username", "richey")
+                .param("age", "18")
 //                .param("size","15")
 //                .param("page","3")
 //                .param("sort","age,desc")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(status().isOk())
                 //jsonPath 表达式 github
-                .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3));
+                .andExpect(jsonPath("$.length()").value(3))
+                .andReturn().getResponse().getContentAsString();
+        System.out.println(result);
     }
 
+
+    @Test
+    public void whenGetInfoSuccess() throws Exception {
+        String result = mockMvc.perform(get("/user/1").contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.userName").value("richey"))
+                .andReturn().getResponse().getContentAsString();
+        System.out.println(result);
+
+    }
+
+
+    @Test
+    public void whenGetInfoFail() throws Exception {
+        mockMvc.perform(get("/user/a").contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().is4xxClientError());
+    }
 
 }
