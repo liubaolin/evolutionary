@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.evolutionary.security.dto.User;
 import top.evolutionary.security.dto.UserQueryCondition;
-import top.evolutionary.security.exception.UserNotExistException;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -87,11 +86,12 @@ public class UserController {
     @JsonView(User.UserDetailView.class)
     public User getInfo(@PathVariable String id) {
 
-        throw new UserNotExistException("1");
-//        User user = new User();
-//        user.setUserName("richey");
-//        user.setPassword("123456");
-//        return user;
+//        throw new UserNotExistException("1");
+        System.out.println("进入getInfo服务");
+        User user = new User();
+        user.setUserName("richey");
+        user.setPassword("123456");
+        return user;
 
     }
 
