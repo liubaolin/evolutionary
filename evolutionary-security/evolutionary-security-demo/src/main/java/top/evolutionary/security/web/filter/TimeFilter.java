@@ -11,8 +11,8 @@ import java.io.IOException;
 
 /**
  * @author richey
+ * 过滤器可以拿到原始的http请求和返回信息，但是拿不到真正处理请求的方法的信息
  */
-//@Component
 public class TimeFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

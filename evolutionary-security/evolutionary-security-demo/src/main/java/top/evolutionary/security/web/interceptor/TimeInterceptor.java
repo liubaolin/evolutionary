@@ -8,6 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 可以拿到原始额http请求和返回信息以及真正处理请求的方法的信息
+ * 但是拿不到方法的参数信息
+ */
 @Component
 public class TimeInterceptor implements HandlerInterceptor {
     @Override
