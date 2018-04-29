@@ -2,15 +2,13 @@ package top.evolutionary.security.web.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 /**
  * 切面可以拿到真正处理请求的方法的参数等信息，却拿不到原始的http请求和响应信息
  */
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class TimeAspect {
 
     @Pointcut("execution(* top.evolutionary.security.web.controller.UserController.*(..))")
