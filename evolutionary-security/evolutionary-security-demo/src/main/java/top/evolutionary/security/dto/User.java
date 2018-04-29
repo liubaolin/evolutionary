@@ -1,6 +1,7 @@
 package top.evolutionary.security.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.NotBlank;
 import top.evolutionary.security.validator.MyConstraint;
 
@@ -15,9 +16,11 @@ public class User {
 
     private String id;
 
+    @ApiModelProperty(value = "用户名")
     @MyConstraint(message = "这是一个测试")
     private String userName;
 
+    @ApiModelProperty(value = "用户密码")
     @NotBlank(message = "密码不能为空！")
     private String password;
 

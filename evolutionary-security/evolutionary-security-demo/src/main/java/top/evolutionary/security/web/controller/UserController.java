@@ -1,6 +1,8 @@
 package top.evolutionary.security.web.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.data.domain.Pageable;
@@ -67,6 +69,7 @@ public class UserController {
         System.out.println(id);
     }
 
+    @ApiOperation(value = "用户查询服务")
     @GetMapping
     @JsonView(User.UserSimpleView.class)
     public List<User> query(UserQueryCondition condition, @PageableDefault(size = 5, page = 2, sort = "age,asc") Pageable pageable) {
@@ -81,10 +84,9 @@ public class UserController {
         return users;
     }
 
-
     @GetMapping("/{id:\\d+}")
     @JsonView(User.UserDetailView.class)
-    public User getInfo(@PathVariable String id) {
+    public User getInfo(@ApiParam(value = "用户id") @PathVariable String id) {
 
 //        throw new UserNotExistException("1");
         System.out.println("进入getInfo服务");
