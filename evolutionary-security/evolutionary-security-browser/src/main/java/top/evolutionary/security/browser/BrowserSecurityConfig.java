@@ -1,15 +1,19 @@
 package top.evolutionary.security.browser;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import top.evolutionary.security.properties.SecurityProperties;
 
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private SecurityProperties securityProperties;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -20,10 +24,16 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //        http.httpBasic();  http Basic的认证方式
         http.formLogin()  //表单登录
+//                .loginPage("/evolutionary-loginIn.html")
+                .loginPage("/authentication/require")
+                .loginProcessingUrl("/authentication/form")
                 .and()
-                .authorizeRequests() //所有请求都需要认证
+                .authorizeRequests()
+                .antMatchers("/authentication/require", securityProperties.getBrower().getLoginPage())
+                .permitAll()
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+                .and().csrf().disable();
 
     }
 }
