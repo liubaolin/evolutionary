@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import top.evolutionary.security.browser.authentication.EvolutionaryAuthenticationFailureHandler;
 import top.evolutionary.security.browser.authentication.EvolutionaryAuthenticationSuccessHandler;
 import top.evolutionary.security.properties.SecurityProperties;
 
@@ -18,6 +19,9 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private EvolutionaryAuthenticationSuccessHandler evolutionaryAuthenticationHandler;
+
+    @Autowired
+    private EvolutionaryAuthenticationFailureHandler evolutionaryAuthenticationFailureHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -32,6 +36,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form")
                 .successHandler(evolutionaryAuthenticationHandler)
+                .failureHandler(evolutionaryAuthenticationFailureHandler)
                 .and()
                 .authorizeRequests()
                 .antMatchers("/authentication/require", securityProperties.getBrower().getLoginPage())
