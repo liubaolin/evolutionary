@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
+import top.evolutionary.security.browser.support.SimpleResult;
 import top.evolutionary.security.properties.LoginInType;
 import top.evolutionary.security.properties.SecurityProperties;
 
@@ -34,7 +35,7 @@ public class EvolutionaryAuthenticationFailureHandler extends SimpleUrlAuthentic
         if (LoginInType.JSON.equals(securityProperties.getBrower().getLoginInType())) {
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(objectMapper.writeValueAsString(exception));
+            response.getWriter().write(objectMapper.writeValueAsString(new SimpleResult(exception.getMessage())));
         } else {
             super.onAuthenticationFailure(request, response, exception);
         }

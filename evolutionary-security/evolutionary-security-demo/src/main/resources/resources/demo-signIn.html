@@ -18,6 +18,14 @@
             <td><input type="password" name="password"></td>
         </tr>
         <tr>
+            <td>验证码</td>
+            <td>
+                <input type="text" name="imageCode" id="imageCode"/>
+                <img src="/code/image">
+                <a href="javascript:changeKaptcha()">看不清，换一张</a>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <button type="submit">登录</button>
             </td>
@@ -26,3 +34,7 @@
 </form>
 </body>
 </html>
+<script>
+  function changeKaptcha() {
+  }
+</script>

@@ -1,5 +1,7 @@
 package top.evolutionary.security.validate.code;
 
+import com.google.code.kaptcha.impl.DefaultKaptcha;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,21 +16,22 @@ import java.io.IOException;
 @RestController
 public class ValidateCodeController {
 
-    private static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
+    public static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
 
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
 
-    @GetMapping("/code/image")
+    @Autowired
+    private DefaultKaptcha captchaProducer = null;
 
+    @GetMapping("/code/image")
     public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        ImageCode imageCode = createImageCode(request);
-        sessionStrategy.setAttribute(new ServletWebRequest(request),SESSION_KEY,imageCode);
+        ImageCode imageCode = createImageCode();
+        sessionStrategy.setAttribute(new ServletWebRequest(request), SESSION_KEY, imageCode);
         ImageIO.write(imageCode.getImage(), "JPEG", response.getOutputStream());
     }
 
-    private ImageCode createImageCode(HttpServletRequest request) {
-
-        return null;
-
+    private ImageCode createImageCode() {
+        String code = captchaProducer.createText();
+        return new ImageCode(captchaProducer.createImage(code), code, 60);
     }
 }
