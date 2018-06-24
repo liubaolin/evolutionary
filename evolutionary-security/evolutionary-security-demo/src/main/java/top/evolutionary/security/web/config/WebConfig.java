@@ -31,11 +31,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
         super.configureAsyncSupport(configurer);
         //注册异步的拦截器()
-//        configurer.registerCallableInterceptors();
-//        configurer.registerDeferredResultInterceptors();
+        configurer.registerCallableInterceptors();
+        configurer.registerDeferredResultInterceptors();
         //默认超时时间
-//        configurer.setDefaultTimeout(30000);
-        //设置可重用的线程池
+        configurer.setDefaultTimeout(30000);
+        //设置可重用的线程池,默认会启用新的线程不会重用线程
 //        configurer.setTaskExecutor()
     }
 

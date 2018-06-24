@@ -36,6 +36,11 @@ public class UserController {
         return authentication;
     }
 
+    @GetMapping("/meToo")
+    public Object getCurrentUserToo(@AuthenticationPrincipal UserDetails userDetails) {
+        return userDetails;
+    }
+
     @GetMapping("/foo")
     public Object getCurrentUserDetail(@AuthenticationPrincipal UserDetails user) {
         return user;

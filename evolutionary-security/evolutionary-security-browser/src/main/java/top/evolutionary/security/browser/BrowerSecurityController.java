@@ -20,6 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @author richey
+ */
 @RestController
 public class BrowerSecurityController {
 
@@ -32,6 +35,13 @@ public class BrowerSecurityController {
     @Autowired
     private SecurityProperties securityProperties;
 
+    /**
+     * 当需要身份认证时，跳转到这里
+     * @param request
+     * @param response
+     * @return
+     * @throws IOException
+     */
     @RequestMapping("/authentication/require")
     @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public SimpleResult requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -36,7 +36,7 @@ public class AsyncController {
         logger.info("主线程开始");
         Callable<String> result =  () -> {
             logger.info("副线程开始");
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             logger.info("副线程结束");
             return "success";
         };

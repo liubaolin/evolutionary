@@ -7,7 +7,6 @@ public class SecurityProperties {
 
     private BrowerProperties brower = new BrowerProperties();
 
-
     public BrowerProperties getBrower() {
         return brower;
     }

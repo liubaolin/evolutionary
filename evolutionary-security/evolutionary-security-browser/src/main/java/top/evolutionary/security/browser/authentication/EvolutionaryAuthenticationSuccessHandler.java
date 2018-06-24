@@ -20,12 +20,23 @@ public class EvolutionaryAuthenticationSuccessHandler extends SavedRequestAwareA
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
+    /**
+     * spring MVC 启动的时候会为我们注册一个objectMapper
+     */
     @Autowired
     private ObjectMapper objectMapper;
 
     @Autowired
     private SecurityProperties securityProperties;
 
+    /**
+     * 登录成功会调用该方法
+     * @param request
+     * @param response
+     * @param authentication
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,

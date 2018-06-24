@@ -2,8 +2,7 @@ package top.evolutionary.security.properties;
 
 public class BrowerProperties {
 
-    //配置登录页
-    private String loginPage = "/evolutionary-loginIn.html";
+    private String loginPage = "/evolutionary-loginIn.html";//默认跳转
 
     private LoginInType loginInType = LoginInType.JSON;
 

@@ -11,6 +11,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author richey
+ */
 @Component
 public class MyUserDetailService implements UserDetailsService {
 
@@ -28,7 +31,10 @@ public class MyUserDetailService implements UserDetailsService {
         logger.info("数据库密码是:" + password);
         return new User(username,
                 password ,
-                true, true, true, true,
+                true,
+                true,
+                true,
+                true,
                 AuthorityUtils.commaSeparatedStringToAuthorityList("admin")
         );
     }

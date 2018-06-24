@@ -11,6 +11,10 @@ import top.evolutionary.security.browser.authentication.EvolutionaryAuthenticati
 import top.evolutionary.security.browser.authentication.EvolutionaryAuthenticationSuccessHandler;
 import top.evolutionary.security.properties.SecurityProperties;
 
+/**
+ * @author richeyss
+ */
+
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -33,7 +37,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         //        http.httpBasic();  http Basic的认证方式
         http.formLogin()  //表单登录
 //                .loginPage("/evolutionary-loginIn.html")
-                .loginPage("/authentication/require")
+                .loginPage("/authentication/require") //如果需要身份认证则跳转到这里
                 .loginProcessingUrl("/authentication/form")
                 .successHandler(evolutionaryAuthenticationHandler)
                 .failureHandler(evolutionaryAuthenticationFailureHandler)
