@@ -1,6 +1,5 @@
 package top.evolutionary.security.validate.code;
 
-import com.google.code.kaptcha.impl.DefaultKaptcha;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
@@ -21,17 +20,14 @@ public class ValidateCodeController {
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
 
     @Autowired
-    private DefaultKaptcha captchaProducer = null;
+    private ValidateCodeGenerator imageCodeGenetor;
 
     @GetMapping("/code/image")
     public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        ImageCode imageCode = createImageCode();
+        ImageCode imageCode = imageCodeGenetor.generate(new ServletWebRequest(request));
         sessionStrategy.setAttribute(new ServletWebRequest(request), SESSION_KEY, imageCode);
         ImageIO.write(imageCode.getImage(), "JPEG", response.getOutputStream());
     }
 
-    private ImageCode createImageCode() {
-        String code = captchaProducer.createText();
-        return new ImageCode(captchaProducer.createImage(code), code, 60);
-    }
+
 }
