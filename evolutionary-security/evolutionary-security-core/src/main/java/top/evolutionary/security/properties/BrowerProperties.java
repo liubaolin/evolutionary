@@ -6,6 +6,8 @@ public class BrowerProperties {
 
     private LoginInType loginInType = LoginInType.JSON;
 
+    private int rememberSeconds = 3600;
+
     public String getLoginPage() {
         return loginPage;
     }
@@ -20,5 +22,13 @@ public class BrowerProperties {
 
     public void setLoginInType(LoginInType loginInType) {
         this.loginInType = loginInType;
+    }
+
+    public int getRememberSeconds() {
+        return rememberSeconds;
+    }
+
+    public void setRememberSeconds(int rememberSeconds) {
+        this.rememberSeconds = rememberSeconds;
     }
 }

@@ -5,13 +5,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import top.evolutionary.security.browser.authentication.EvolutionaryAuthenticationFailureHandler;
 import top.evolutionary.security.browser.authentication.EvolutionaryAuthenticationSuccessHandler;
 import top.evolutionary.security.properties.SecurityProperties;
 import top.evolutionary.security.validate.code.ValidateCodeFilter;
+
+import javax.sql.DataSource;
 
 /**
  * @author richeyss
@@ -29,9 +34,25 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private EvolutionaryAuthenticationFailureHandler evolutionaryAuthenticationFailureHandler;
 
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(dataSource);
+        //启动的时候自动创建表
+//        tokenRepository.setCreateTableOnStartup(true);
+        return tokenRepository;
     }
 
     @Override
@@ -43,10 +64,15 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin()  //表单登录
-                .loginPage("/authentication/require") //如果需要身份认证则跳转到这里
-                .loginProcessingUrl("/authentication/form")//登录请求的url
-                .successHandler(evolutionaryAuthenticationHandler)
-                .failureHandler(evolutionaryAuthenticationFailureHandler)
+                    .loginPage("/authentication/require") //如果需要身份认证则跳转到这里
+                    .loginProcessingUrl("/authentication/form")//登录请求的url
+                    .successHandler(evolutionaryAuthenticationHandler)
+                    .failureHandler(evolutionaryAuthenticationFailureHandler)
+                    .and()
+                .rememberMe()
+                    .tokenRepository(persistentTokenRepository())
+                    .tokenValiditySeconds(securityProperties.getBrower().getRememberSeconds())
+                    .userDetailsService(userDetailsService)
                 .and()
                 .authorizeRequests()
                 .antMatchers("/authentication/require",
