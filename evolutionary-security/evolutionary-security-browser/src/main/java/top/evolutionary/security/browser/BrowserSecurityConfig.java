@@ -19,7 +19,7 @@ import top.evolutionary.security.validate.code.ValidateCodeFilter;
 import javax.sql.DataSource;
 
 /**
- * @author richeyss
+ * @author richey
  */
 
 @Configuration
@@ -50,7 +50,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     public PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
         tokenRepository.setDataSource(dataSource);
-        //启动的时候自动创建表
+        //第一次启动的时候自动创建表
 //        tokenRepository.setCreateTableOnStartup(true);
         return tokenRepository;
     }
@@ -77,7 +77,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/authentication/require",
                         securityProperties.getBrower().getLoginPage(),
-                        "/code/image")
+//                        "/code/image")
+                        "/code/*") //code开头的都可以不经过验证访问
                 .permitAll()
                 .anyRequest()
                 .authenticated()

@@ -1,7 +1,7 @@
 package top.evolutionary.security.code;
 
 import org.springframework.web.context.request.ServletWebRequest;
-import top.evolutionary.security.validate.code.ImageCode;
+import top.evolutionary.security.validate.code.image.ImageCode;
 import top.evolutionary.security.validate.code.ValidateCodeGenerator;
 
 //@Component("imageCodeGenerator")

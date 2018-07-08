@@ -1,10 +1,14 @@
-package top.evolutionary.security.validate.code;
+package top.evolutionary.security.validate.code.image;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import org.springframework.web.context.request.ServletWebRequest;
 import top.evolutionary.security.properties.SecurityProperties;
+import top.evolutionary.security.validate.code.ValidateCodeGenerator;
 
-public class ImageCodeGenetor implements ValidateCodeGenerator {
+/**
+ * @author richey
+ */
+public class ImageCodeGenerator implements ValidateCodeGenerator {
 
     private DefaultKaptcha captchaProducer = null;
 

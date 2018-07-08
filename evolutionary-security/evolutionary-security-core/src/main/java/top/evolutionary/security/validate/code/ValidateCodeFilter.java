@@ -11,6 +11,7 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 import top.evolutionary.security.properties.SecurityProperties;
+import top.evolutionary.security.validate.code.image.ImageCode;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -51,7 +52,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
                 break;
             }
         }
-        
+
         if (action) {
             try {
                 validate(new ServletWebRequest(request));
@@ -64,7 +65,9 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
     }
 
     private void validate(ServletWebRequest request) throws ServletRequestBindingException {
-        ImageCode codeInSession = (ImageCode) sessionStrategy.getAttribute(request, ValidateCodeController.SESSION_KEY);
+        String type = StringUtils.substringAfter(request.getRequest().getRequestURI(), "/code/");
+        String sessionKey = ValidateCodeProcessor.SESSION_KEY_PREFIX + type;
+        ImageCode codeInSession = (ImageCode) sessionStrategy.getAttribute(request, sessionKey);
         String codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(), "imageCode");
 
         if (StringUtils.isBlank(codeInRequest)) {
@@ -76,7 +79,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
         }
 
         if (codeInSession.isExpired()) {
-            sessionStrategy.removeAttribute(request, ValidateCodeController.SESSION_KEY);
+            sessionStrategy.removeAttribute(request, sessionKey);
             throw new ValidateCodeException("验证码已过期");
         }
 
@@ -84,7 +87,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
             throw new ValidateCodeException("验证码不匹配");
         }
 
-        sessionStrategy.removeAttribute(request, ValidateCodeController.SESSION_KEY);
+        sessionStrategy.removeAttribute(request, sessionKey);
     }
 
 
