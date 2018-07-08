@@ -11,15 +11,15 @@ import top.evolutionary.security.validate.code.ValidateCodeGenerator;
 /**
  * @author richey
  */
-@Component("smsCodeGenerator")
-public class SmsCodeGenerator implements ValidateCodeGenerator {
+@Component("smsValidateCodeGenerator")
+public class SmsValidateCodeGenerator implements ValidateCodeGenerator {
 
     @Autowired
     private SecurityProperties securityProperties;
 
     @Override
     public ValidCode generate(ServletWebRequest request) {
-        String code = RandomStringUtils.randomNumeric(securityProperties.getCode().getSms().getWidth());
+        String code = RandomStringUtils.randomNumeric(securityProperties.getCode().getSms().getLength());
         return new ValidCode(code, securityProperties.getCode().getImage().getExpireIn());
     }
 

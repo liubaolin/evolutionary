@@ -7,8 +7,8 @@ import org.springframework.web.context.request.ServletWebRequest;
 import top.evolutionary.security.validate.code.ValidCode;
 import top.evolutionary.security.validate.code.impl.AbstractValidateCodeProcessor;
 
-@Component("smsCodeProcessor")
-public class SmsCodeProcessor extends AbstractValidateCodeProcessor<ValidCode> {
+@Component("smsValidateCodeProcessor")
+public class SmsValidateCodeProcessor extends AbstractValidateCodeProcessor<ValidCode> {
 
     @Autowired
     private SmsCodeSender smsCodeSender;

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import top.evolutionary.security.properties.SecurityProperties;
 import top.evolutionary.security.validate.code.sms.DefaultSmsCodeSender;
-import top.evolutionary.security.validate.code.image.ImageCodeGenerator;
+import top.evolutionary.security.validate.code.image.ImageValidateCodeGenerator;
 import top.evolutionary.security.validate.code.sms.SmsCodeSender;
 import top.evolutionary.security.validate.code.ValidateCodeGenerator;
 
@@ -25,13 +25,13 @@ public class ValidateCodeBeanConfig {
      *
      * @return
      */
-    @Bean
-    @ConditionalOnMissingBean(name = "imageCodeGenerator")
+    @Bean("imageValidateCodeGenerator")
+    @ConditionalOnMissingBean(name = "imageValidateCodeGenerator")
     public ValidateCodeGenerator imageCodeGenerator() {
-        ImageCodeGenerator imageCodeGenerator = new ImageCodeGenerator();
-        imageCodeGenerator.setCaptchaProducer(captchaProducer);
-        imageCodeGenerator.setSecurityProperties(securityProperties);
-        return imageCodeGenerator;
+        ImageValidateCodeGenerator imageValidateCodeGenerator = new ImageValidateCodeGenerator();
+        imageValidateCodeGenerator.setCaptchaProducer(captchaProducer);
+        imageValidateCodeGenerator.setSecurityProperties(securityProperties);
+        return imageValidateCodeGenerator;
     }
 
 

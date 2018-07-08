@@ -2,13 +2,26 @@ package top.evolutionary.security.properties;
 
 public abstract class CodeProperties {
 
-    protected int width = 4;
+    protected int length = 4;
 
     /**
      * 验证码超时时间，单位秒
      */
     protected int expireIn = 60;
 
+    /**
+     * 默认拦截的需要校验验证码的url
+     */
+    private String url ;
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public int getExpireIn() {
         return expireIn;
@@ -19,11 +32,11 @@ public abstract class CodeProperties {
     }
 
 
-    public int getWidth() {
-        return width;
+    public int getLength() {
+        return length;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public void setLength(int length) {
+        this.length = length;
     }
 }

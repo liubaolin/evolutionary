@@ -4,7 +4,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import top.evolutionary.security.validate.code.image.ImageCode;
 import top.evolutionary.security.validate.code.ValidateCodeGenerator;
 
-//@Component("imageCodeGenerator")
+//@Component("imageValidateCodeGeneratorss")
 public class DemoImageCodeGenerator implements ValidateCodeGenerator {
     @Override
     public ImageCode generate(ServletWebRequest request) {

@@ -8,7 +8,7 @@ import top.evolutionary.security.validate.code.ValidateCodeGenerator;
 /**
  * @author richey
  */
-public class ImageCodeGenerator implements ValidateCodeGenerator {
+public class ImageValidateCodeGenerator implements ValidateCodeGenerator {
 
     private DefaultKaptcha captchaProducer = null;
 

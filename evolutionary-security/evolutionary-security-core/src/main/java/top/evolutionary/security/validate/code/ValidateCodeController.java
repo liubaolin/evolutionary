@@ -19,7 +19,7 @@ public class ValidateCodeController {
 
     @GetMapping("/code/{type}")
     public void createImageCode(HttpServletRequest request, HttpServletResponse response, @PathVariable("type") String type) throws Exception {
-        validateCodeProcessorMap.get(type + "CodeProcessor").create(new ServletWebRequest(request, response));
+        validateCodeProcessorMap.get(type + "ValidateCodeProcessor").create(new ServletWebRequest(request, response));
     }
 
 }
