@@ -8,10 +8,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import top.evolutionary.security.properties.SecurityConstants;
+import top.evolutionary.security.common.SecurityConstants;
 
 /**
- * @author zhailiang
+ * @author richey
  *
  */
 public class AbstractChannelSecurityConfig extends WebSecurityConfigurerAdapter {

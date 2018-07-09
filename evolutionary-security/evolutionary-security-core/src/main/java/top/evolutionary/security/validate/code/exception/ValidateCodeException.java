@@ -1,4 +1,4 @@
-package top.evolutionary.security.validate.code;
+package top.evolutionary.security.validate.code.exception;
 
 import org.springframework.security.core.AuthenticationException;
 

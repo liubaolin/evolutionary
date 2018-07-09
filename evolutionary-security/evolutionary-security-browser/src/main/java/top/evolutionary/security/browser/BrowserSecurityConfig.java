@@ -11,9 +11,9 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import top.evolutionary.security.authentication.AbstractChannelSecurityConfig;
 import top.evolutionary.security.authentication.mobile.SmsCodeAuthenticationSecurityconfig;
-import top.evolutionary.security.properties.SecurityConstants;
+import top.evolutionary.security.common.SecurityConstants;
 import top.evolutionary.security.properties.SecurityProperties;
-import top.evolutionary.security.validate.code.ValidateCodeSecurityConfig;
+import top.evolutionary.security.validate.code.config.ValidateCodeSecurityConfig;
 
 import javax.sql.DataSource;
 

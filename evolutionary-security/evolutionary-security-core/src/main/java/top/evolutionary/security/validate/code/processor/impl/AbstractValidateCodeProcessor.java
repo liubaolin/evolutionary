@@ -1,4 +1,4 @@
-package top.evolutionary.security.validate.code.impl;
+package top.evolutionary.security.validate.code.processor.impl;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +7,11 @@ import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
-import top.evolutionary.security.validate.code.ValidCode;
-import top.evolutionary.security.validate.code.ValidateCodeException;
+import top.evolutionary.security.common.ValidCode;
+import top.evolutionary.security.validate.code.exception.ValidateCodeException;
 import top.evolutionary.security.validate.code.ValidateCodeGenerator;
-import top.evolutionary.security.validate.code.ValidateCodeProcessor;
-import top.evolutionary.security.validate.code.ValidateCodeType;
+import top.evolutionary.security.validate.code.processor.ValidateCodeProcessor;
+import top.evolutionary.security.common.ValidateCodeType;
 
 import java.util.Map;
 

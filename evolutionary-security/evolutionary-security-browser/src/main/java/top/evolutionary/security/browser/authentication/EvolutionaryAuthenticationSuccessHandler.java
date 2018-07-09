@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-import top.evolutionary.security.properties.LoginInType;
+import top.evolutionary.security.common.LoginInType;
 import top.evolutionary.security.properties.SecurityProperties;
 
 import javax.servlet.ServletException;

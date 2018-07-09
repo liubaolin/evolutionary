@@ -1,6 +1,6 @@
 package top.evolutionary.security.validate.code.image;
 
-import top.evolutionary.security.validate.code.ValidCode;
+import top.evolutionary.security.common.ValidCode;
 
 import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;

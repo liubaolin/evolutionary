@@ -1,13 +1,11 @@
 /**
  * 
  */
-package top.evolutionary.security.validate.code;
+package top.evolutionary.security.common;
 
-
-import top.evolutionary.security.properties.SecurityConstants;
 
 /**
- * @author zhailiang
+ * @author richey
  *
  */
 public enum ValidateCodeType {

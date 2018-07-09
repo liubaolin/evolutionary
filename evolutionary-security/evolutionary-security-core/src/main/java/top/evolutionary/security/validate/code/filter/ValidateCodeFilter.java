@@ -1,4 +1,4 @@
-package top.evolutionary.security.validate.code;
+package top.evolutionary.security.validate.code.filter;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
@@ -8,8 +8,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
-import top.evolutionary.security.properties.SecurityConstants;
+import top.evolutionary.security.common.SecurityConstants;
 import top.evolutionary.security.properties.SecurityProperties;
+import top.evolutionary.security.validate.code.processor.ValidateCodeProcessorHolder;
+import top.evolutionary.security.common.ValidateCodeType;
+import top.evolutionary.security.validate.code.exception.ValidateCodeException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

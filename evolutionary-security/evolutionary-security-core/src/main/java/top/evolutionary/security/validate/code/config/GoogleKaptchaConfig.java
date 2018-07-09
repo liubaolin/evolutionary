@@ -1,4 +1,4 @@
-package top.evolutionary.security.config;
+package top.evolutionary.security.validate.code.config;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;

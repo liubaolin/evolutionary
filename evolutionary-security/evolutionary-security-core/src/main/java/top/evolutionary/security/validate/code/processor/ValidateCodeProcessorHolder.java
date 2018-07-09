@@ -1,10 +1,12 @@
 /**
  *
  */
-package top.evolutionary.security.validate.code;
+package top.evolutionary.security.validate.code.processor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import top.evolutionary.security.common.ValidateCodeType;
+import top.evolutionary.security.validate.code.exception.ValidateCodeException;
 
 import java.util.Map;
 

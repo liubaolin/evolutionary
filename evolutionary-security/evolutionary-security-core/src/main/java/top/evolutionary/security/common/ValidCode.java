@@ -1,4 +1,4 @@
-package top.evolutionary.security.validate.code;
+package top.evolutionary.security.common;
 
 import java.time.LocalDateTime;
 

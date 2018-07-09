@@ -2,7 +2,7 @@ package top.evolutionary.security.validate.code.image;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
-import top.evolutionary.security.validate.code.impl.AbstractValidateCodeProcessor;
+import top.evolutionary.security.validate.code.processor.impl.AbstractValidateCodeProcessor;
 
 import javax.imageio.ImageIO;
 

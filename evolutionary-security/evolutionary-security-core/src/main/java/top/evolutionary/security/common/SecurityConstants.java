@@ -1,4 +1,4 @@
-package top.evolutionary.security.properties;
+package top.evolutionary.security.common;
 
 /**
  * @author richey

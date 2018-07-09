@@ -9,7 +9,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 import top.evolutionary.security.browser.support.SimpleResult;
-import top.evolutionary.security.properties.LoginInType;
+import top.evolutionary.security.common.LoginInType;
 import top.evolutionary.security.properties.SecurityProperties;
 
 import javax.servlet.ServletException;
