@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import top.evolutionary.security.DemoApplication;
+import top.evolutionary.securitydemo.DemoApplication;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
