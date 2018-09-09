@@ -2,6 +2,7 @@ package top.evolutionary.securitydemo.social.qq.api;
 
 /**
  * get_user_info返回的数据
+ * @author richey
  */
 public class QQUserInfo {
 

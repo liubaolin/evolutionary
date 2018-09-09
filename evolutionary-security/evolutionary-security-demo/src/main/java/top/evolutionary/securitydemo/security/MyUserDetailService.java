@@ -27,7 +27,7 @@ public class MyUserDetailService implements UserDetailsService,SocialUserDetails
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        logger.info("登录用户名：" + username);
+        logger.info("表单登录用户名：" + username);
         //todo 根据用户名查找用户信息
         // todo 根据查找到的用户信息判断用户是否被冻结
         String password = passwordEncoder.encode("123456");

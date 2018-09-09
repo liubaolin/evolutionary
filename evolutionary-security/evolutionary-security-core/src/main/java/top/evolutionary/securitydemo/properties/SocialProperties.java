@@ -5,6 +5,8 @@ package top.evolutionary.securitydemo.properties;
  */
 public class SocialProperties {
 
+    private String filterProcessorUrl = "/auth";
+
     private QQProperties qq = new QQProperties();
 
     public QQProperties getQq() {
@@ -13,5 +15,13 @@ public class SocialProperties {
 
     public void setQq(QQProperties qq) {
         this.qq = qq;
+    }
+
+    public String getFilterProcessorUrl() {
+        return filterProcessorUrl;
+    }
+
+    public void setFilterProcessorUrl(String filterProcessorUrl) {
+        this.filterProcessorUrl = filterProcessorUrl;
     }
 }

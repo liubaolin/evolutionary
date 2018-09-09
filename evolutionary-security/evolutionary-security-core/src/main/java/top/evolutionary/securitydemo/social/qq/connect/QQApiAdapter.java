@@ -3,13 +3,13 @@ package top.evolutionary.securitydemo.social.qq.connect;
 import org.springframework.social.connect.ApiAdapter;
 import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
-import top.evolutionary.securitydemo.social.qq.api.QQ;
+import top.evolutionary.securitydemo.social.qq.api.QQApi;
 import top.evolutionary.securitydemo.social.qq.api.QQUserInfo;
 
 /**
  * @author richey
  */
-public class QQAdapter implements ApiAdapter<QQ> {
+public class QQApiAdapter implements ApiAdapter<QQApi> {
 
     /**
      * 测试我们的接口服务是否可以调通
@@ -18,12 +18,12 @@ public class QQAdapter implements ApiAdapter<QQ> {
      * @return
      */
     @Override
-    public boolean test(QQ api) {
+    public boolean test(QQApi api) {
         return true;
     }
 
     @Override
-    public void setConnectionValues(QQ api, ConnectionValues values) {
+    public void setConnectionValues(QQApi api, ConnectionValues values) {
         QQUserInfo userInfo = api.getUserInfo();
         values.setDisplayName(userInfo.getNickname());
         values.setImageUrl(userInfo.getFigureurl_qq_1());
@@ -35,7 +35,7 @@ public class QQAdapter implements ApiAdapter<QQ> {
     }
 
     @Override
-    public UserProfile fetchUserProfile(QQ api) {
+    public UserProfile fetchUserProfile(QQApi api) {
         return null;
     }
 
@@ -45,7 +45,7 @@ public class QQAdapter implements ApiAdapter<QQ> {
      * @param message
      */
     @Override
-    public void updateStatus(QQ api, String message) {
+    public void updateStatus(QQApi api, String message) {
         // do nothing
     }
 }
