@@ -1,9 +1,13 @@
 package top.evolutionary.securitydemo.social.qq.api;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * get_user_info返回的数据
  * @author richey
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class QQUserInfo {
 
     /**

@@ -65,26 +65,28 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
         applyPasswordAuthenticationConfig(http);
 
         http.apply(validateCodeSecurityConfig)
-                    .and()
+                .and()
                 .apply(smsCodeAuthenticationSecurityconfig)
-                    .and()
+                .and()
                 .apply(evolutionarySocialConfigurer)
-                    .and()
+                .and()
                 .rememberMe()
-                    .tokenRepository(persistentTokenRepository())
-                    .tokenValiditySeconds(securityProperties.getBrower().getRememberSeconds())
-                    .userDetailsService(userDetailsService)
+                .tokenRepository(persistentTokenRepository())
+                .tokenValiditySeconds(securityProperties.getBrower().getRememberSeconds())
+                .userDetailsService(userDetailsService)
                 .and()
                 .authorizeRequests()
-                    .antMatchers(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
+                .antMatchers(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
                         SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,
                         SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
                         securityProperties.getBrower().getLoginPage(),
-                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*")
-                    .permitAll()
+                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
+                        securityProperties.getBrower().getSignUpUrl(),
+                        "/user/regist") //这个路径实际是业务方提供了,核心框架不应写死
+                .permitAll()
                 .anyRequest()
                 .authenticated()
-                    .and()
+                .and()
                 .csrf().disable();
     }
 }

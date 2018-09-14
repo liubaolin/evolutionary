@@ -46,7 +46,7 @@ public class QQApiImpl extends AbstractOAuth2ApiBinding implements QQApi {
         this.appId = appId;
         String url = String.format(GET_OPENID_URL, accessToken);
         String result = getRestTemplate().getForObject(url, String.class);
-        this.openId = StringUtils.substringBetween(result, "\"openid\":", "}");
+        this.openId = StringUtils.substringBetween(result, "\"openid\":\"", "\"}");
         logger.info("调用QQ服务获取的openId是:{}", openId);
     }
 

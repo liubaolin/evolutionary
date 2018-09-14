@@ -18,7 +18,7 @@ public class User {
 
     @ApiModelProperty(value = "用户名")
     @MyConstraint(message = "这是一个测试")
-    private String userName;
+    private String username;
 
     @ApiModelProperty(value = "用户密码")
     @NotBlank(message = "密码不能为空！")
@@ -28,12 +28,12 @@ public class User {
     private Date birthday;
 
     @JsonView(UserSimpleView.class)
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @JsonView(UserDetailView.class)
