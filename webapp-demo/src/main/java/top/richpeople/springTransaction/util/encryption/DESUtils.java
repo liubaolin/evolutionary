@@ -1,4 +1,4 @@
-package com.demo.webapp.common.util.encryption;
+package top.richpeople.springTransaction.util.encryption;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

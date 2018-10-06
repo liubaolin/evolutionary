@@ -21,10 +21,14 @@ public class TransactionTest {
 
 
     @Test
-    public void testServiceA() throws InterruptedException {
+    public void testTransaction() throws InterruptedException {
+        logger.info("------------- start -------------------------");
         Thread.currentThread().setName("thread-test");
-        logger.info("methodA1执行，当前线程是：{}", Thread.currentThread().getName());
+        logger.info("当前线程是：{}", Thread.currentThread().getName());
         serviceA.methodA1();
+        logger.info("------------------------------主进程结束,等待退出");
+        Thread.sleep(10000);
+        logger.info("------------- end ----------------------------");
     }
 
 }

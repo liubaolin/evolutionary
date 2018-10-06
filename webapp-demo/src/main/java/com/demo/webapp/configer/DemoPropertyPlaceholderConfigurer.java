@@ -1,6 +1,6 @@
 package com.demo.webapp.configer;
 
-import com.demo.webapp.common.util.encryption.DESUtils;
+import top.richpeople.springTransaction.util.encryption.DESUtils;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;

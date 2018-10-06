@@ -1,4 +1,4 @@
-package com.demo.webapp.common.util.mail;
+package top.richpeople.springTransaction.util.mail;
 
 
 import org.junit.Before;

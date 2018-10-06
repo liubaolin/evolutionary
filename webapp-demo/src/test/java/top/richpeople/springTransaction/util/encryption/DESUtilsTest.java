@@ -1,4 +1,4 @@
-package com.demo.webapp.common.util.encryption;
+package top.richpeople.springTransaction.util.encryption;
 
 import org.junit.Test;
 

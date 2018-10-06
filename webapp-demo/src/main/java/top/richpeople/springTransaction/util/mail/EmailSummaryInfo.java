@@ -1,4 +1,4 @@
-package com.demo.webapp.common.util.mail;
+package top.richpeople.springTransaction.util.mail;
 
 /**
  * 邮件的概要信息

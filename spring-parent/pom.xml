@@ -16,6 +16,7 @@
         <module>spring-data-jpa</module>
         <module>07springMvc</module>
         <module>06spring-aop</module>
+        <module>spring-transaction</module>
     </modules>
 
     <name>spring-study-parent</name>

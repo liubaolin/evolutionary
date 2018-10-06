@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * @author richey
@@ -23,5 +24,7 @@ public class Foo {
     private String name;
 
     private Integer age;
+
+    private Date updateAt;
 
 }
