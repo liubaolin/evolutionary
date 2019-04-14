@@ -9,6 +9,7 @@ import {AdvanceTabSelectorSample} from './TabSelector/AdvanceTabSelector';
 import Clock from './Clock/Clock';
 import SnapshotSample from './SnapshotSample/SnapshotSample';
 import WithTimerTabSelector from './HOC/WithTimerTabSelector'
+import LocaleSample from './LocaleSample/LocaleSample'
 
 
 const routeMap = {
@@ -17,7 +18,8 @@ const routeMap = {
     "advance-tab-selector": AdvanceTabSelectorSample,
     "with-timer-tab-selector": WithTimerTabSelector,
     "clock": Clock,
-    "snapshot-sample": SnapshotSample
+    "snapshot-sample": SnapshotSample,
+    "locale-sample": LocaleSample
 };
 
 
