@@ -11,6 +11,7 @@ import SnapshotSample from './SnapshotSample/SnapshotSample';
 import WithTimerTabSelector from './HOC/WithTimerTabSelector';
 import LocaleSample from './LocaleSample/LocaleSample';
 import PureRedux from './Redux/PureRedux';
+import Counter from './Redux/Counter';
 
 
 const routeMap = {
@@ -21,7 +22,8 @@ const routeMap = {
     "clock": Clock,
     "snapshot-sample": SnapshotSample,
     "locale-sample": LocaleSample,
-    "pure-redux": PureRedux
+    "pure-redux": PureRedux,
+    "counter": Counter
 };
 
 
