@@ -8,8 +8,9 @@ import {TabSelectorSample} from './TabSelector/TabSelector';
 import {AdvanceTabSelectorSample} from './TabSelector/AdvanceTabSelector';
 import Clock from './Clock/Clock';
 import SnapshotSample from './SnapshotSample/SnapshotSample';
-import WithTimerTabSelector from './HOC/WithTimerTabSelector'
-import LocaleSample from './LocaleSample/LocaleSample'
+import WithTimerTabSelector from './HOC/WithTimerTabSelector';
+import LocaleSample from './LocaleSample/LocaleSample';
+import PureRedux from './Redux/PureRedux';
 
 
 const routeMap = {
@@ -19,7 +20,8 @@ const routeMap = {
     "with-timer-tab-selector": WithTimerTabSelector,
     "clock": Clock,
     "snapshot-sample": SnapshotSample,
-    "locale-sample": LocaleSample
+    "locale-sample": LocaleSample,
+    "pure-redux": PureRedux
 };
 
 
