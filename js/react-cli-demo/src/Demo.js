@@ -12,6 +12,9 @@ import WithTimerTabSelector from './HOC/WithTimerTabSelector';
 import LocaleSample from './LocaleSample/LocaleSample';
 import PureRedux from './Redux/PureRedux';
 import Counter from './Redux/Counter';
+import RouterSample from './Router/RouterSample';
+import RouterParams from './Router/RouterParams';
+import NestedRoute from './Router/NestedRoute';
 
 
 const routeMap = {
@@ -23,7 +26,10 @@ const routeMap = {
     "snapshot-sample": SnapshotSample,
     "locale-sample": LocaleSample,
     "pure-redux": PureRedux,
-    "counter": Counter
+    "counter": Counter,
+    "router-sample": RouterSample,
+    "router-params": RouterParams,
+    "nested-params": NestedRoute
 };
 
 
