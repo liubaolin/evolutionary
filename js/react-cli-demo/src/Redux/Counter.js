@@ -57,6 +57,7 @@ function mapStateToProps(state) {
 
 //让组件访问Redux的Action
 function mapDispatchToProps(dispatch) {
+  //封装dispatch事件
   return bindActionCreators({ plusOne, minusOne }, dispatch);
 }
 

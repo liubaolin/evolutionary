@@ -1,0 +1,59 @@
+@import '../../styles/mixins';
+
+.nav-header-nav-header {
+
+  .app-header {
+    position: relative;
+    padding: 0 0;
+    //background-color: #fff;
+    background-color: #b3b3b3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+  }
+
+  .app-header-hidden{
+    display: none;
+  }
+
+  .app-logo {
+    animation: app-logo-spin infinite 10s linear;
+    height: 80px;
+    width: 80px;
+    float: left;
+    display: inline-block;
+    margin:0 0px;
+    border-radius: 40px;
+  }
+
+  .app-navbar-collapse{
+    height: 100%;
+    display: inline-block;
+    float: right;
+    line-height: 1.5;
+    margin:0 30px;
+    padding-top: 20px;
+
+    .active{
+      color: #fe7865;
+    }
+  }
+
+  .app-nav-bar-login {
+    display: inline-block;
+    float: right;
+    height: 100%;
+    padding-top:30px;
+    margin:0 60px 0 0;
+  }
+
+
+  .app-nav-item{
+    display: inline-block;
+    margin:10px 15px 0;
+    color: #777;
+  }
+
+
+}

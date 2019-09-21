@@ -1,0 +1,1 @@
+export {toggleHeader} from './toggleHeader';
