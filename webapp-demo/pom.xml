@@ -22,7 +22,7 @@
     </build>
 
     <properties>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <org.slf4j.version>1.7.25</org.slf4j.version>
         <spring-framework.version>4.2.5.RELEASE</spring-framework.version>
         <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
