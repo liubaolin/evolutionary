@@ -17,7 +17,9 @@ export class DefaultPage extends Component {
     return (
       <div className="home-default-page">
         <NavHeader />
+        <div className="home-default-body">
 
+        </div>
       </div>
     );
   }

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from './redux/actions';
-import {Link} from 'react-router-dom';
+import {BrowserRouter as Router,Link,NavLink} from 'react-router-dom';
+
 import { Icon } from 'antd';
 
 const headerLogoSrc = "http://blog-pic-1254088127.picsh.myqcloud.com/猪logo.jpg";
@@ -25,24 +26,29 @@ export class NavHeader extends Component {
             <div className="nav-header-nav-header">
                 <header className="app-header">
                     <img src={headerLogoSrc} className="app-logo" alt="logo"/>
-                    <Link className="app-nav-bar-login" to="/login">登录/注册</Link>
-                    <div className="app-navbar-collapse">
-                        <Link to="/" className="app-nav-item active">Home</Link>
-                        <Link to="/" className="app-nav-item">About</Link>
-                        <Link to="/" className="app-nav-item">Works</Link>
-                        <Link to="/" className="app-nav-item">Staff</Link>
-                        <Link to="/" className="app-nav-item">Contact</Link>
+                    <div>
+                        <div className="app-navbar-collapse">
+                            <NavLink to="/home" className="app-nav-item" activeClassName="active">Home</NavLink>
+                            <NavLink to="/about" className="app-nav-item" activeClassName="active">About</NavLink>
+                            <NavLink to="/works" className="app-nav-item" activeClassName="active">Works</NavLink>
+                            <NavLink to="/staff" className="app-nav-item" activeClassName="active">Staff</NavLink>
+                            <NavLink to="/contact" className="app-nav-item" activeClassName="active">Contact</NavLink>
+                            <NavLink to="/login" className="app-nav-item" activeClassName="active" >登录/注册</NavLink>
+                        </div>
                     </div>
+
+                    {/*<div className="nav-header-toggle-btn" onClick={this.props.actions.toggleHeader}><Icon type="to-top" /></div>*/}
+
                 </header>
-                <button onClick={this.props.actions.toggleHeader}><Icon type="up" /></button>
 
             </div>
         );
     }
     hidenHeader(){
         return (
-            <div>
-            </div>
+            <header className="app-header">
+                {/*<div className="nav-header-toggle-btn" onClick={this.props.actions.toggleHeader}><Icon type="vertical-align-bottom" /></div>*/}
+            </header>
         );
     }
 

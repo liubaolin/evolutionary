@@ -13,7 +13,7 @@
     height: 80px;
   }
 
-  .app-header-hidden{
+  .app-header-hidden {
     display: none;
   }
 
@@ -23,37 +23,43 @@
     width: 80px;
     float: left;
     display: inline-block;
-    margin:0 0px;
+    margin: 0 0px;
     border-radius: 40px;
   }
 
-  .app-navbar-collapse{
-    height: 100%;
+  .app-navbar-collapse {
     display: inline-block;
     float: right;
     line-height: 1.5;
-    margin:0 30px;
+    margin: 0 30px;
     padding-top: 20px;
 
-    .active{
+    :first-child{
+
+    }
+    .active {
       color: #fe7865;
     }
   }
 
-  .app-nav-bar-login {
+/*  .app-nav-bar-login {
     display: inline-block;
     float: right;
-    height: 100%;
-    padding-top:30px;
-    margin:0 60px 0 0;
-  }
+    padding-top: 30px;
+    margin: 0 60px 0 0;
+  }*/
 
-
-  .app-nav-item{
+  .app-nav-item {
     display: inline-block;
-    margin:10px 15px 0;
+    margin: 10px 15px 0;
     color: #777;
   }
 
+  .nav-header-toggle-btn {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto !important;
+    padding-top: 60px;
+  }
 
 }
