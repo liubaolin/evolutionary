@@ -1,0 +1,17 @@
+[
+  {
+    "type_id": 1,
+    "name": "整数",
+    "symbol": "Integer"
+  },
+  {
+    "type_id": 2,
+    "name": "文本",
+    "symbol": "String"
+  },
+  {
+    "type_id": 3,
+    "name": "日期",
+    "symbol": "Date"
+  }
+]

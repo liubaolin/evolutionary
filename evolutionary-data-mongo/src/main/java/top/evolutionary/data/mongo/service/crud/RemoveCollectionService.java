@@ -1,4 +1,4 @@
-package top.evolutionary.data.mongo.service;
+package top.evolutionary.data.mongo.service.crud;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

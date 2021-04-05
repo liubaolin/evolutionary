@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import top.evolutionary.data.mongo.service.CreateCollectionService;
+import top.evolutionary.data.mongo.service.demo.CreateCollectionDemo;
 
 /**
  * @EnableMongoRepositories By default, @EnableMongoRepositories scans the current package for any interfaces that extend one of Spring Data’s repository interfaces. You can use its basePackageClasses=MyRepository.class to safely tell Spring Data MongoDB to scan a different root package by type if your project layout has multiple projects and it does not find your repositories.
@@ -15,7 +15,7 @@ import top.evolutionary.data.mongo.service.CreateCollectionService;
 public class EvolutionaryDataMongoApplication implements CommandLineRunner {
 
     @Autowired
-    private CreateCollectionService createCollectionService;
+    private CreateCollectionDemo createCollectionDemo;
 
     public static void main(String[] args) {
         SpringApplication.run(EvolutionaryDataMongoApplication.class, args);
@@ -25,7 +25,8 @@ public class EvolutionaryDataMongoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        createCollectionService.simpleRepositoryDemo();
+//        createCollectionDemo.createCollectionDemo();
+//        createCollectionDemo.insertLageData();
     }
 
 }

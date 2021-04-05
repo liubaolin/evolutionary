@@ -1,4 +1,4 @@
-package top.evolutionary.data.mongo.service;
+package top.evolutionary.data.mongo.service.crud;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.CollectionOptions;
@@ -41,13 +41,9 @@ public class CreateCollectionService {
         // fetch an individual customer
         System.out.println("Staff found with findByFirstName('Alice'):");
         System.out.println("--------------------------------");
-        System.out.println(repository.findByFirstName("Alice"));
+        System.out.println(repository.findByName("Alice"));
 
-        System.out.println("Customers found with findByLastName('Smith'):");
-        System.out.println("--------------------------------");
-        for (Staff staff : repository.findByLastName("Smith")) {
-            System.out.println(staff);
-        }
+
     }
 
 

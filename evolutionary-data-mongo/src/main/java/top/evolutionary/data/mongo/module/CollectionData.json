@@ -1,0 +1,18 @@
+[
+  {
+    "data": {
+      "count": 100,
+      "produced_date": "2021-04-05",
+      "staff_name": "Richey"
+    },
+    "collection_id": 1
+  },
+  {
+    "data": {
+      "count": 115,
+      "produced_date": "2021-04-06",
+      "staff_name": "Richey"
+    },
+    "collection_id": 2
+  }
+]

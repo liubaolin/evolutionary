@@ -1,0 +1,62 @@
+[
+  {
+    "collection_id": 1,
+    "collection_identifier": "uuid-demo1",
+    "collection_name": "生产车间",
+    "schema_version": {
+      "version": 1,
+      "create_time": 1617607182482,
+      "describe": "第一次创建"
+    },
+    "fields": [
+      {
+        "key": "count",
+        "key_name": "数量",
+        "type_id": 1
+      },
+      {
+        "key": "produced_date",
+        "key_name": "生产日期",
+        "type_id": 3
+      },
+      {
+        "key": "staff_name",
+        "key_name": "员工姓名",
+        "type_id": 2
+      }
+    ],
+    "group_ids": [
+      1
+    ]
+  },
+  {
+    "collection_id": 2,
+    "collection_identifier": "uuid-demo2",
+    "collection_name": "包装车间",
+    "collection_version": {
+      "version": 1,
+      "create_time": 1617607182482,
+      "describe": "第一次创建"
+    },
+    "fields": [
+      {
+        "key": "count",
+        "key_name": "数量",
+        "type_id": 1
+      },
+      {
+        "key": "produced_date",
+        "key_name": "生产日期",
+        "type_id": 3
+      },
+      {
+        "key": "staff_name",
+        "key_name": "员工姓名",
+        "type_id": 2
+      }
+    ],
+    "group_ids": [
+      1
+    ]
+  }
+]

@@ -9,7 +9,6 @@ import java.util.Date;
 /**
  * MongoDB stores data in collections. Spring Data MongoDB maps the Staff class into a collection called customer. If you want to change the name of the collection, you can use Spring Data MongoDB’s @Document annotation on the class.
  */
-@Accessors(chain = true)
 @Document("staff")
 public class Staff {
 
