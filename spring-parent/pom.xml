@@ -24,7 +24,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-framework.version>4.2.5.RELEASE</spring-framework.version>
+        <spring-framework.version>5.3.18</spring-framework.version>
         <commons-fileupload.version>1.3.2</commons-fileupload.version>
         <log4j.version>1.2.17</log4j.version>
         <commmons-lang.version>2.6</commmons-lang.version>
